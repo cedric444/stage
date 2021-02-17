@@ -1,0 +1,30 @@
+/****  GENERAL ****/
+html, body {
+	margin : 0;
+	padding : 0;
+}
+
+div, header, footer {
+	display : flex;
+	flex : 1;
+}
+
+img, video {
+	width : 100%;
+}
+
+body {
+	background-color: steelblue;
+}
+.colonne {
+	flex-direction : column;
+}
+
+.titre {
+	flex: 5;
+}
+
+.titre, .libelle{
+	justify-content: center;
+	align-items: center;
+}
