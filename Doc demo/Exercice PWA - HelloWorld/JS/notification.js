@@ -1,0 +1,2 @@
+
+Notification.requestPermission(function (status) {});
