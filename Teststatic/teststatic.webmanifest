@@ -1,0 +1,21 @@
+{
+    "name": "Korn discography",
+    "short_name": "disco",
+    "description": "application qui affiche la discographie de Korn",
+    "icons": [
+        {
+            "src": "icons/korn.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/korn512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/stage/Teststatic/test.html",
+    "display": "fullscreen",
+    "theme_color": "#a9a9a9",
+    "background_color": "#a9a9a9"
+}

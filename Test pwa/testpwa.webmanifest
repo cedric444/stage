@@ -1,0 +1,15 @@
+{
+    "background_color": "steelblue",
+    "description": "Liste des albums de Korn",
+    "displya": "fullscreen",
+    "icons": [
+        {
+            "src": "/stage/test pwa/IMG/korn.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ],
+    "name": "Korn discography",
+    "short_name": "Korn",
+    "start_url": "/stage/Test%20pwa/index.php?page=Accueil"
+}
