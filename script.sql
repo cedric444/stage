@@ -21,13 +21,13 @@ CREATE TABLE users(
     idUser           INT  AUTO_INCREMENT  NOT NULL PRIMARY KEY,
     nomUser          VARCHAR(100)  NOT NULL,
     prenomUser       VARCHAR(100)  NOT NULL,
-    adresse                 VARCHAR(255)  NOT NULL,
-    codePostal              VARCHAR(5)  NOT NULL,
-    ville                   VARCHAR(100)  NOT NULL,
+    adresse          VARCHAR(255)  NOT NULL,
+    codePostal       VARCHAR(5)  NOT NULL,
+    ville            VARCHAR(100)  NOT NULL,
     mailUser         VARCHAR(150)  NOT NULL,
     telUser          VARCHAR(10)  NOT NULL,
-    nbPointFidelite         INT(3)  NOT NULL,
-    idRole                  INT  NOT NULL,
+    nbPointFidelite  INT(3)  NOT NULL,
+    idRole           INT  NOT NULL
 )ENGINE=InnoDB, CHARSET = UTF8;
 
 CREATE TABLE roles(
@@ -39,7 +39,8 @@ CREATE TABLE roles(
 CREATE TABLE produits(
     idProduit               INT  AUTO_INCREMENT  NOT NULL  PRIMARY KEY,
     libelleProduit          VARCHAR(100)  NOT NULL,
-    prixProduit             FLOAT,    
+    idTypeProduit           INT  NOT NULL,
+    prixProduit             FLOAT    
 )ENGINE=InnoDB, CHARSET = UTF8;
 
 CREATE TABLE typesProduits(
@@ -92,11 +93,11 @@ CREATE TABLE commandes(
     dateCommande            DATE  NOT NULL,
     nbPointFidelite         INT(3)  NOT NULL,
     horaireLivraison        TIME  NOT NULL,
-    idUser           INT  NOT NULL
+    idUser                  INT  NOT NULL
 )ENGINE=InnoDB, CHARSET = UTF8;
 
 CREATE TABLE lignesDeCommandes(
-    idLigneDeCommande           INT  AUTO_INCREMENT  NOT NULL,
+    idLigneDeCommande           INT  AUTO_INCREMENT  NOT NULL  PRIMARY KEY,
     idCommande                  INT  NOT NULL,
     quantite                    INT  NOT NULL,
     idProduit                   INT  NOT NULL,
@@ -112,15 +113,10 @@ ADD CONSTRAINT FK_users_roles
 FOREIGN KEY (idRole)
 REFERENCES roles(idRole);
 
-ALTER TABLE users
-ADD CONSTRAINT FK_users_fidelites
-FOREIGN KEY (idFidelite)
-REFERENCES fidelites(idFidelite);
-
 ALTER TABLE produits
 ADD CONSTRAINT FK_produits_typesProduits
-FOREIGN KEY (idType)
-REFERENCES typesProduits(idType);
+FOREIGN KEY (idTypeProduit)
+REFERENCES typesProduits(idTypeProduit);
 
 ALTER TABLE pizzas
 ADD CONSTRAINT FK_pizzas_recettes
@@ -139,40 +135,40 @@ REFERENCES users(idUser);
 
 ALTER TABLE comporteProduitRecette
 ADD CONSTRAINT FK_comporteProduitRecette_recettes
-FOREIGN KEY idRecette
+FOREIGN KEY (idRecette)
 REFERENCES recettes(idRecette);
 
 ALTER TABLE comporteProduitRecette
 ADD CONSTRAINT FK_comporteProduitRecette_produits
-FOREIGN KEY idProduit
+FOREIGN KEY (idProduit)
 REFERENCES produits(idProduit);
 
 ALTER TABLE compositions
 ADD CONSTRAINT FK_compositions_produits
-FOREIGN KEY idProduit
+FOREIGN KEY (idProduit)
 REFERENCES produits(idProduit);
 
 ALTER TABLE compositions
 ADD CONSTRAINT FK_compositions_allergenes
-FOREIGN KEY idAllergene
+FOREIGN KEY (idAllergene)
 REFERENCES allergenes(idAllergene);
 
 ALTER TABLE lignesDeCommandes
 ADD CONSTRAINT FK_lignesDeCommandes_commandes
-FOREIGN KEY idCommande
+FOREIGN KEY (idCommande)
 REFERENCES commandes(idCommande);
 
 ALTER TABLE lignesDeCommandes
 ADD CONSTRAINT FK_lignesDeCommandes_produits
-FOREIGN KEY idProduit
+FOREIGN KEY (idProduit)
 REFERENCES produits(idProduit);
 
 ALTER TABLE lignesDeCommandes
 ADD CONSTRAINT FK_lignesDeCommandes_pizzas
-FOREIGN KEY idPizza
+FOREIGN KEY (idPizza)
 REFERENCES pizzas(idPizza);
 
 ALTER TABLE lignesDeCommandes
 ADD CONSTRAINT FK_lignesDeCommandes_taillesPizzas
-FOREIGN KEY idTaillePizza
+FOREIGN KEY (idTaillePizza)
 REFERENCES taillesPizzas(idTaillePizza);
