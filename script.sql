@@ -62,7 +62,7 @@ CREATE TABLE users(
     ville            VARCHAR(100)  NOT NULL,
     mailUser         VARCHAR(150)  NOT NULL,
     telUser          VARCHAR(10)  NOT NULL,
-    nbPointFidelite  INT(3)  NOT NULL DEFAULT 0,
+    nbPointFidelite  INT(3)  NULL,
     idRole           INT  NOT NULL
 )ENGINE=InnoDB, CHARSET = UTF8;
 
@@ -76,7 +76,7 @@ CREATE TABLE comporteProduitRecette(
     idComporteProduitRecette    INT  AUTO_INCREMENT  NOT NULL  PRIMARY KEY,
     idRecette                   INT  NOT NULL,
     idProduit                   INT  NOT NULL,
-    quantiteProduitPizza        INT  NOT NULL DEFAULT 0
+    quantiteProduitPizza        INT  NULL
 )ENGINE=InnoDB, CHARSET = UTF8;
 
 CREATE TABLE pizzas(
@@ -90,8 +90,8 @@ CREATE TABLE lignesDeCommandes(
     idLigneDeCommande           INT  AUTO_INCREMENT  NOT NULL  PRIMARY KEY,
     idCommande                  INT  NOT NULL,
     quantite                    INT  NOT NULL,
-    idProduit                   INT  NOT NULL,
-    idTaillePizza               INT  NOT NULL DEFAULT 1,
+    idProduit                   INT  NULL,
+    idTaillePizza               INT  NULL,
     idPizza                     INT  NULL,
     prix                        FLOAT  NOT NULL
 )ENGINE=InnoDB, CHARSET = UTF8;
