@@ -53,7 +53,7 @@
 
 // le numéro de version est modifié à chaque nouveau déploiement de fichers
 const CACHE_VERSION = 1;
-const CURRENT_CACHE = `ndf-${CACHE_VERSION}`;
+const CURRENT_CACHE = `app-${CACHE_VERSION}`;
 
 // toutes les routes et fichiers qu'on veut sauvegarder en cache
 const cacheFiles = [
