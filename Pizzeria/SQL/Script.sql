@@ -76,8 +76,7 @@ CREATE TABLE compositions(
 CREATE TABLE comporteProduitRecette(
     idComporteProduitRecette    INT  AUTO_INCREMENT  NOT NULL  PRIMARY KEY,
     idRecette                   INT  NOT NULL,
-    idProduit                   INT  NOT NULL,
-    quantiteProduitPizza        INT  NULL
+    idProduit                   INT  NOT NULL
 )ENGINE=InnoDB, CHARSET = UTF8;
 
 CREATE TABLE pizzas(
@@ -171,3 +170,52 @@ ADD CONSTRAINT FK_lignesDeCommandes_taillesPizzas
 FOREIGN KEY (idTaillePizza)
 REFERENCES taillesPizzas(idTaillePizza);
 
+CREATE VIEW allergenesproduit AS
+SELECT
+p.idProduit,
+p.libelleProduit,
+c.idComposition,
+a.idAllergene,
+a.libelleAllergene
+FROM
+produits AS p
+INNER JOIN compositions AS c
+ON
+    p.idProduit = c.idProduit
+INNER JOIN allergenes AS a
+ON 
+    c.idAllergene = a.idAllergene;
+
+CREATE VIEW produitsrecettes AS
+SELECT
+p.idProduit,
+p.libelleProduit,
+cpr.idComporteProduitRecette,
+r.idRecette,
+r.libelleRecette,
+r.imagePizza
+FROM
+produits AS p
+INNER JOIN comporteProduitRecette AS cpr
+ON
+    p.idProduit = cpr.idProduit
+INNER JOIN recettes AS  r
+ON
+    cpr.idRecette = r.idRecette;
+
+CREATE VIEW commandePizza AS
+SELECT
+c.idCommande,
+c.dateCommande,
+c.idUser,
+ldc.idLigneDeCommande,
+ldc.quantite,
+p.idPizza
+FROM
+commandes AS c
+INNER JOIN lignesDeCommandes AS ldc
+ON
+    c.idCommande = ldc.idCommande
+INNER JOIN pizzas AS p
+ON
+    ldc.idPizza = p.idPizza;
