@@ -5,6 +5,23 @@ var template= "<div>\n\
     <div><span>Année</span><strong>YEAR</strong></div>\n\
     </div>";
 
+
+
+//On enregistre le service worker
+if ('serviceWorker' in navigator)
+{
+    navigator.serviceWorker.register('/stage/teststatic/sw.js');
+};
+
+var button= document.getElementById("notifications");
+button.addEventListener('click', (e)=>{
+    Notification.requestPermission().then(function(result) {
+        if(result==='granted') {
+            randomNotification();
+        }
+    });
+});
+
 var content= '';
 for (var i=0; i<albums.length; i++)
 {
@@ -16,21 +33,6 @@ for (var i=0; i<albums.length; i++)
     content += entry;
 };
 document.getElementById('content').innerHTML= content;
-
-//On enregistre le service worker
-if (serviceWorker in navigator)
-{
-    navigator.serviceWorker.register('/teststatic/sw.js');
-};
-
-var button= document.getElementById("notifications");
-button.addEventListener('click', (e)=>{
-    Notification.requestPermission().then(function(result) {
-        if(result==='granted') {
-            randomNotification();
-        }
-    });
-});
 
 function randomNotification(){
     var randomItem= Math.floor(Math.random()*albums.length);
