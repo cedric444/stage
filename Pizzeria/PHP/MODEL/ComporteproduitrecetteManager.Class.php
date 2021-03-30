@@ -5,21 +5,19 @@ class ComporteproduitrecetteManager
 	public static function add(Comporteproduitrecette $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Comporteproduitrecette (idRecette,idProduit,quantiteProduitPizza) VALUES (:idRecette,:idProduit,:quantiteProduitPizza)");
+		$q=$db->prepare("INSERT INTO Comporteproduitrecette (idRecette,idProduit) VALUES (:idRecette,:idProduit)");
 		$q->bindValue(":idRecette", $obj->getIdRecette());
 		$q->bindValue(":idProduit", $obj->getIdProduit());
-		$q->bindValue(":quantiteProduitPizza", $obj->getQuantiteProduitPizza());
 		$q->execute();
 	}
 
 	public static function update(Comporteproduitrecette $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Comporteproduitrecette SET idComporteProduitRecette=:idComporteProduitRecette,idRecette=:idRecette,idProduit=:idProduit,quantiteProduitPizza=:quantiteProduitPizza WHERE idComporteProduitRecette=:idComporteProduitRecette");
+		$q=$db->prepare("UPDATE Comporteproduitrecette SET idComporteProduitRecette=:idComporteProduitRecette,idRecette=:idRecette,idProduit=:idProduit WHERE idComporteProduitRecette=:idComporteProduitRecette");
 		$q->bindValue(":idComporteProduitRecette", $obj->getIdComporteProduitRecette());
 		$q->bindValue(":idRecette", $obj->getIdRecette());
 		$q->bindValue(":idProduit", $obj->getIdProduit());
-		$q->bindValue(":quantiteProduitPizza", $obj->getQuantiteProduitPizza());
 		$q->execute();
 	}
 	public static function delete(Comporteproduitrecette $obj)

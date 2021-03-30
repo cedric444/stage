@@ -25,7 +25,8 @@ CREATE TABLE produits(
     idProduit               INT  AUTO_INCREMENT  NOT NULL  PRIMARY KEY,
     libelleProduit          VARCHAR(100)  NOT NULL,
     idTypeProduit           INT  NOT NULL,
-    prixProduit             FLOAT    
+    prixProduit             FLOAT    ,
+    quantite                INT
 )ENGINE=InnoDB, CHARSET = UTF8;
 
 CREATE TABLE allergenes(

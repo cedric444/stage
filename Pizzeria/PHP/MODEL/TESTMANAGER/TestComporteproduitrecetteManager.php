@@ -8,7 +8,7 @@ var_dump($obj);
 echo $obj->toString();
 
 echo "ajout de l'objet". "<br>";
-$newObj = new Comporteproduitrecette(["idRecette" => "([value 1])", "idProduit" => "([value 2])", "quantiteProduitPizza" => "([value 3])"]);
+$newObj = new Comporteproduitrecette(["idRecette" => "([value 1])", "idProduit" => "([value 2])"]);
 var_dump(ComporteproduitrecetteManager::add($newObj));
 
 echo "Liste des objets" . "<br>";

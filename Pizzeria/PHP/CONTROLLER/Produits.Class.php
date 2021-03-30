@@ -9,6 +9,7 @@ class Produits
 	private $_libelleProduit;
 	private $_idTypeProduit;
 	private $_prixProduit;
+	private $_quantite;
 
 	/***************** Accesseurs ***************** */
 
@@ -53,6 +54,16 @@ class Produits
 		$this->_prixProduit=$prixProduit;
 	}
 
+	public function getQuantite()
+	{
+		return $this->_quantite;
+	}
+
+	public function setQuantite($quantite)
+	{
+		$this->_quantite=$quantite;
+	}
+
 	/*****************Constructeur***************** */
 
 	public function __construct(array $options = [])
@@ -83,7 +94,7 @@ class Produits
 	*/
 	public function toString()
 	{
-		return "IdProduit : ".$this->getIdProduit()."LibelleProduit : ".$this->getLibelleProduit()."IdTypeProduit : ".$this->getIdTypeProduit()."PrixProduit : ".$this->getPrixProduit()."\n";
+		return "IdProduit : ".$this->getIdProduit()."LibelleProduit : ".$this->getLibelleProduit()."IdTypeProduit : ".$this->getIdTypeProduit()."PrixProduit : ".$this->getPrixProduit()."Quantite : ".$this->getQuantite()."\n";
 	}
 
 

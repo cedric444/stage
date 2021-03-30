@@ -8,7 +8,6 @@ class Comporteproduitrecette
 	private $_idComporteProduitRecette;
 	private $_idRecette;
 	private $_idProduit;
-	private $_quantiteProduitPizza;
 
 	/***************** Accesseurs ***************** */
 
@@ -43,16 +42,6 @@ class Comporteproduitrecette
 		$this->_idProduit=$idProduit;
 	}
 
-	public function getQuantiteProduitPizza()
-	{
-		return $this->_quantiteProduitPizza;
-	}
-
-	public function setQuantiteProduitPizza($quantiteProduitPizza)
-	{
-		$this->_quantiteProduitPizza=$quantiteProduitPizza;
-	}
-
 	/*****************Constructeur***************** */
 
 	public function __construct(array $options = [])
@@ -83,7 +72,7 @@ class Comporteproduitrecette
 	*/
 	public function toString()
 	{
-		return "IdComporteProduitRecette : ".$this->getIdComporteProduitRecette()."IdRecette : ".$this->getIdRecette()."IdProduit : ".$this->getIdProduit()."QuantiteProduitPizza : ".$this->getQuantiteProduitPizza()."\n";
+		return "IdComporteProduitRecette : ".$this->getIdComporteProduitRecette()."IdRecette : ".$this->getIdRecette()."IdProduit : ".$this->getIdProduit()."\n";
 	}
 
 

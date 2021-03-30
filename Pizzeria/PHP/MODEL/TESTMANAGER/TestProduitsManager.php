@@ -8,7 +8,7 @@ var_dump($obj);
 echo $obj->toString();
 
 echo "ajout de l'objet". "<br>";
-$newObj = new Produits(["libelleProduit" => "([value 1])", "idTypeProduit" => "([value 2])", "prixProduit" => "([value 3])"]);
+$newObj = new Produits(["libelleProduit" => "([value 1])", "idTypeProduit" => "([value 2])", "prixProduit" => "([value 3])", "quantite" => "([value 4])"]);
 var_dump(ProduitsManager::add($newObj));
 
 echo "Liste des objets" . "<br>";
