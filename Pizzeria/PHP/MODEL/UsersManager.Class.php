@@ -68,4 +68,18 @@ class UsersManager
 		}
 		return $liste;
 	}
+	public static function getByEmail($email)
+	{
+		$db=DbConnect::getDb();
+	   $q=$db->query('SELECT * FROM users WHERE mailUser ="'.$email.'"');
+	   $results = $q->fetch(PDO::FETCH_ASSOC);
+	   if($results != false)
+	   {
+		   return new Users($results);
+	   }
+	   else
+	   {
+		   return false;
+	   }
+	}
 }

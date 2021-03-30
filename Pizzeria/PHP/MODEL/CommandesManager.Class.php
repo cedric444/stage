@@ -58,4 +58,33 @@ class CommandesManager
 		}
 		return $liste;
 	}
+	public static function getByClient($idUser)
+	{
+		$db=DbConnect::getDb();
+	   $q=$db->query('SELECT * FROM commandes WHERE idUser ="'.$idUser.'"');
+	   $results = $q->fetch(PDO::FETCH_ASSOC);
+	   if($results != false)
+	   {
+		   return new Commandes($results);
+	   }
+	   else
+	   {
+		   return false;
+	   }
+	   
+	}  
+	public static function getByDate($dateCommande)
+	{
+		$db=DbConnect::getDb();
+		$$q=$db->query('SELECT * FROM commandes WHERE dateCommande ="'.$dateCommande.'"');
+		$results = $q->fetch(PDO::FETCH_ASSOC);
+		if($results != false)
+		{
+			return new Commandes($results);
+		}
+		else
+		{
+			return false;
+		}
+	}
 }
