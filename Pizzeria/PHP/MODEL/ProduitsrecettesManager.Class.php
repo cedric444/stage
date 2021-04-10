@@ -60,4 +60,19 @@ class ProduitsrecettesManager
 		}
 		return $liste;
 	}
+	public static function getByRecette($idRecette)
+    {
+        $db = DbConnect::getDb();
+        $idRecette = (int) $idRecette;
+        $liste = [];
+        $q = $db->query("SELECT * FROM Produitsrecettes where idRecette=$idRecette");
+        while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            if ($donnees != false)
+            {
+                $liste[] = new Produitsrecettes($donnees);
+            }
+        }return $liste;
+
+    }
 }

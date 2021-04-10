@@ -5,7 +5,7 @@ class UsersManager
 	public static function add(Users $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Users (nomUser,prenomUser,adresse,codePostal,ville,mailUser,telUser,nbPointFidelite,idRole) VALUES (:nomUser,:prenomUser,:adresse,:codePostal,:ville,:mailUser,:telUser,:nbPointFidelite,:idRole)");
+		$q=$db->prepare("INSERT INTO Users (nomUser,prenomUser,adresse,codePostal,ville,mailUser,telUser,motDePasse,nbPointFidelite,idRole) VALUES (:nomUser,:prenomUser,:adresse,:codePostal,:ville,:mailUser,:telUser,:motDePasse,:nbPointFidelite,:idRole)");
 		$q->bindValue(":nomUser", $obj->getNomUser());
 		$q->bindValue(":prenomUser", $obj->getPrenomUser());
 		$q->bindValue(":adresse", $obj->getAdresse());
@@ -13,6 +13,7 @@ class UsersManager
 		$q->bindValue(":ville", $obj->getVille());
 		$q->bindValue(":mailUser", $obj->getMailUser());
 		$q->bindValue(":telUser", $obj->getTelUser());
+		$q->bindValue(":motDePasse", $obj->getMotDePasse());
 		$q->bindValue(":nbPointFidelite", $obj->getNbPointFidelite());
 		$q->bindValue(":idRole", $obj->getIdRole());
 		$q->execute();
@@ -21,7 +22,7 @@ class UsersManager
 	public static function update(Users $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Users SET idUser=:idUser,nomUser=:nomUser,prenomUser=:prenomUser,adresse=:adresse,codePostal=:codePostal,ville=:ville,mailUser=:mailUser,telUser=:telUser,nbPointFidelite=:nbPointFidelite,idRole=:idRole WHERE idUser=:idUser");
+		$q=$db->prepare("UPDATE Users SET idUser=:idUser,nomUser=:nomUser,prenomUser=:prenomUser,adresse=:adresse,codePostal=:codePostal,ville=:ville,mailUser=:mailUser,telUser=:telUser,motDePasse=:motDePasse,nbPointFidelite=:nbPointFidelite,idRole=:idRole WHERE idUser=:idUser");
 		$q->bindValue(":idUser", $obj->getIdUser());
 		$q->bindValue(":nomUser", $obj->getNomUser());
 		$q->bindValue(":prenomUser", $obj->getPrenomUser());
@@ -30,6 +31,7 @@ class UsersManager
 		$q->bindValue(":ville", $obj->getVille());
 		$q->bindValue(":mailUser", $obj->getMailUser());
 		$q->bindValue(":telUser", $obj->getTelUser());
+		$q->bindValue(":motDePasse", $obj->getMotDePasse());
 		$q->bindValue(":nbPointFidelite", $obj->getNbPointFidelite());
 		$q->bindValue(":idRole", $obj->getIdRole());
 		$q->execute();

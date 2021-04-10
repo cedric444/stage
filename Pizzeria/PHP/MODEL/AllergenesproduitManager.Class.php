@@ -59,18 +59,18 @@ class AllergenesproduitManager
 		return $liste;
 	}
 	public static function getByProduit($idProduit)
-	{
-		$db=DbConnect::getDb();
-	   $q=$db->query('SELECT * FROM Alergenesproduit WHERE idProduit ="'.$idProduit.'"');
-	   $results = $q->fetch(PDO::FETCH_ASSOC);
-	   if($results != false)
-	   {
-		   return new Allergenesproduit($results);
-	   }
-	   else
-	   {
-		   return false;
-	   }
-	   
-	}  
+    {
+        $db = DbConnect::getDb();
+        $idProduit = (int) $idProduit;
+        $liste = [];
+        $q = $db->query("SELECT * FROM allergenesproduit where idProduit=$idProduit");
+        while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            if ($donnees != false)
+            {
+                $liste[] = new Allergenesproduit($donnees);
+            }
+        }return $liste;
+
+    }  
 }

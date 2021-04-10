@@ -13,6 +13,7 @@ class Users
 	private $_ville;
 	private $_mailUser;
 	private $_telUser;
+	private $_motDePasse;
 	private $_nbPointFidelite;
 	private $_idRole;
 
@@ -97,6 +98,16 @@ class Users
 	public function setTelUser($telUser)
 	{
 		$this->_telUser=$telUser;
+	}
+
+	public function getMotDePasse()
+	{
+		return $this->_motDePasse;
+	}
+
+	public function setMotDePasse($motDePasse)
+	{
+		$this->_motDePasse=$motDePasse;
 	}
 
 	public function getNbPointFidelite()

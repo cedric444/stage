@@ -6,6 +6,7 @@ class Commandes
 	/*****************Attributs***************** */
 
 	private $_idCommande;
+	private $_numCommande;
 	private $_dateCommande;
 	private $_nbPointFidelite;
 	private $_horaireLivraison;
@@ -22,6 +23,19 @@ class Commandes
 	public function setIdCommande($idCommande)
 	{
 		$this->_idCommande=$idCommande;
+	}
+
+	public function getNumCommande()
+	{
+		return $this->_numCommande;
+	}
+
+	 
+	public function setNumCommande($numCommande)
+	{
+		$this->_numCommande = $numCommande;
+
+		return $this;
 	}
 
 	public function getDateCommande()
@@ -125,4 +139,6 @@ class Commandes
 	{
 		return;
 	}
+
+	
 }

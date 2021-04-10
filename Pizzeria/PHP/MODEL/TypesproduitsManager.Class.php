@@ -52,4 +52,19 @@ class TypesproduitsManager
 		}
 		return $liste;
 	}
+	public static function getByProduit($obj)
+	{
+		$db=DbConnect::getDb();
+	   	$q=$db->query('SELECT * FROM Typesproduits WHERE idProduit="'.$obj.'"');
+	   	$results = $q->fetch(PDO::FETCH_ASSOC);
+	   	if($results != false)
+	   	{
+		   	return new Produits($results);
+	   	}
+	   	else
+	   	{
+		   	return false;
+	   	}
+	   
+	}
 }

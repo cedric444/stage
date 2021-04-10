@@ -61,18 +61,18 @@ class CommandepizzaManager
 		return $liste;
 	}
 	public static function getByPizza($idPizza)
-	{
-		$db=DbConnect::getDb();
-	   $q=$db->query('SELECT * FROM commandepizza WHERE idPizza="'.$idPizza.'"');
-	   $results = $q->fetch(PDO::FETCH_ASSOC);
-	   if($results != false)
-	   {
-		   return new Produits($results);
-	   }
-	   else
-	   {
-		   return false;
-	   }
-	   
-	}  
+    {
+        $db = DbConnect::getDb();
+        $idPizza = (int) $idPizza;
+        $liste = [];
+        $q = $db->query("SELECT * FROM commandepizza where idPizza=$idPizza");
+        while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            if ($donnees != false)
+            {
+                $liste[] = new Commandepizza($donnees);
+            }
+        }return $liste;
+
+    }
 }

@@ -54,4 +54,34 @@ class ComporteproduitrecetteManager
 		}
 		return $liste;
 	}
+	public static function getByRecette($idRecette)
+    {
+        $db = DbConnect::getDb();
+        $idRecette = (int) $idRecette;
+        $liste = [];
+        $q = $db->query("SELECT * FROM Comporteproduitrecette where idRecette=$idRecette");
+        while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            if ($donnees != false)
+            {
+                $liste[] = new Produitsrecettes($donnees);
+            }
+        }return $liste;
+
+    }
+	public static function getByProduit($idProduit)
+    {
+        $db = DbConnect::getDb();
+        $idProduit = (int) $idProduit;
+        $liste = [];
+        $q = $db->query("SELECT * FROM Comporteproduitrecette where idProduit = $idProduit");
+        while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            if ($donnees != false)
+            {
+                $liste[] = new Comporteproduitrecette($donnees);
+            }
+        }return $liste;
+
+    }
 }

@@ -5,7 +5,8 @@ class CommandesManager
 	public static function add(Commandes $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Commandes (dateCommande,nbPointFidelite,horaireLivraison,idUser) VALUES (:dateCommande,:nbPointFidelite,:horaireLivraison,:idUser)");
+		$q=$db->prepare("INSERT INTO Commandes (dateCommande,numCommande,nbPointFidelite,horaireLivraison,idUser) VALUES (:dateCommande, :numCommande, :nbPointFidelite,:horaireLivraison,:idUser)");
+		$q->bindVallue(":numCommande", $obj->getNumCommande());
 		$q->bindValue(":dateCommande", $obj->getDateCommande());
 		$q->bindValue(":nbPointFidelite", $obj->getNbPointFidelite());
 		$q->bindValue(":horaireLivraison", $obj->getHoraireLivraison());
@@ -16,7 +17,8 @@ class CommandesManager
 	public static function update(Commandes $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Commandes SET idCommande=:idCommande,dateCommande=:dateCommande,nbPointFidelite=:nbPointFidelite,horaireLivraison=:horaireLivraison,idUser=:idUser WHERE idCommande=:idCommande");
+		$q=$db->prepare("UPDATE Commandes SET idCommande=:idCommande,numCommande=:numCommande,dateCommande=:dateCommande,nbPointFidelite=:nbPointFidelite,horaireLivraison=:horaireLivraison,idUser=:idUser WHERE idCommande=:idCommande");
+		$q->bindVallue(":numCommande", $obj->getNumCommande());
 		$q->bindValue(":idCommande", $obj->getIdCommande());
 		$q->bindValue(":dateCommande", $obj->getDateCommande());
 		$q->bindValue(":nbPointFidelite", $obj->getNbPointFidelite());
@@ -74,17 +76,18 @@ class CommandesManager
 	   
 	}  
 	public static function getByDate($dateCommande)
-	{
-		$db=DbConnect::getDb();
-		$$q=$db->query('SELECT * FROM commandes WHERE dateCommande ="'.$dateCommande.'"');
-		$results = $q->fetch(PDO::FETCH_ASSOC);
-		if($results != false)
-		{
-			return new Commandes($results);
-		}
-		else
-		{
-			return false;
-		}
-	}
+    {
+        $db = DbConnect::getDb();
+        $dateCommande = (int) $dateCommande;
+        $liste = [];
+        $q = $db->query("SELECT * FROM commandes where dateCommande=$dateCommande");
+        while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            if ($donnees != false)
+            {
+                $liste[] = new Commandes($donnees);
+            }
+        }return $liste;
+
+    }
 }

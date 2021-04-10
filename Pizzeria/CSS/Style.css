@@ -4,20 +4,132 @@ html, body {
 	padding : 0;
 }
 
-div, header, footer, nav, article {
+div, header, footer, nav, section, form {
 	display : flex;
 	flex : 1;
+	justify-content: center;
 }
 
+body {
+    background-color: seashell;
+}
 img, video {
 	width : 100%;
-}
-
-.colonne {
-	flex-direction : column;
 }
 
 .titre {
 	flex: 5;
 }
 
+.colonne, form {
+    flex-direction: column;
+}
+
+.centre {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.espaceHor {
+    flex: none;
+    height: 1em;
+}
+.doubleHor {
+    flex: none;
+    height: 3em;
+}
+
+.erreur {
+    text-align: center;
+    padding: 0.5em;
+    color: var(--Rouge);
+    text-shadow: 0.1em 0.1em 0.1em 0.1em var(--CouleurTexte);
+}
+
+.grande,
+section {
+    flex: 5;
+}
+
+.mini {
+    flex: 0.3;
+}
+
+.double {
+    flex: 2;
+}
+
+.triple {
+    flex: 3;
+}
+
+.info {
+    font-family: var(--fontTexte);
+    font-weight: bold;
+}
+
+.bouton {
+    border: 2px solid black;
+    background-color: #FAC021;
+    color: #215BFA;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 0.2em;
+}
+
+:before,
+:after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.masque {
+    visibility: hidden;
+}
+/******** Header ********/
+header,
+footer {
+    box-shadow: -0.1em 0.1em 0.2em 0.2em var(--CouleurOmbre);
+}
+
+header {
+    margin-bottom: 1em;
+}
+
+h1 {
+	color: var(--couleurTexte);
+    font-family: var(--fontTitre);
+}
+.logo,
+.connection {
+    flex: 0.5;
+}
+
+.texteClair,
+.label {
+    color: var(--CouleurTexte);
+}
+
+
+/******** Footer ******/
+footer {
+    margin-top: 1em;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 99%;
+    bottom: 0.2em;
+    color: var(--CouleurTexte);
+    background-color: var(--FondPage);
+}
+
+
+/******* Checkbox *******/
+
+.check {
+    display: flex;
+    flex: 1;
+    border: solid black 2px;
+}
