@@ -35,8 +35,7 @@ foreach ($produits as $unProduit) {
                     <a href="index.php?page=FormProduit&mode=details&id=' . $unProduit->getIdProduit() .'"><button class="bouton"><i class="fas fa-info-circle"></i> Détail</button></a>
                     <div class="mini"></div>
                     <a href="index.php?page=FormProduit&mode=modifier&id=' . $unProduit->getIdProduit() . '"><button class="bouton"><i class="fas fa-edit"></i> Modifier</button></a>
-                    <div class="mini"></div>
-                    <a href="index.php?page=FormProduit&mode=supprimer&id=' . $unProduit->getIdProduit() . '"><button class="bouton"><i class="fas fa-trash-alt"></i> Supprimer</button></a>
+
                 </div>';
 
     echo '</div>

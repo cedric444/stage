@@ -3,9 +3,10 @@
 <?php
 
 // $mode = $_GET['mode'];
+$recette = RecettesManager::findById($_GET["idRecette"]);
 
-$recettes = ProduitsrecettesManager::getByRecette($_GET["idRecette"]);
-// var_dump($recettes);
+$liste= ComporteproduitrecetteManager::getByRecette($_GET['idRecette']);
+// var_dump($liste);
 // $formAction = '<form action="index.php?page=ActionProduit&mode='.$mode.'" method="POST">';
 
 // switch ($mode) {
@@ -50,41 +51,123 @@ $recettes = ProduitsrecettesManager::getByRecette($_GET["idRecette"]);
 // $typeProduit = TypesproduitsManager::findById($idTypeProduit);
 // var_dump($typeProduit);
 
-for($i=0;$i<count($recettes); $i++)
-{
-    $idRecette = $recettes[$i]->getIdRecette();
-    $recette = $recettes[$i]->getLibelleRecette();
-    
+
 
     echo '<div class="info colonne>
-    <div class="titre centre"><h2>'.$recette. '</h2></div></div>';}
+    <div class="titre centre"><h2>'.$recette->getLibelleRecette(). '</h2></div></div>';
 
-    echo '<div class="espaceHor"></div> 
-    <div class="info colonne triple">
-        <div class="info colonne">
-            <div class="triple"></div>
-            <div class="info colonne">
-                <div class="double"></div>
-                <div class="espaceHor"></div>
-                <div class="info colonne">
-                    <div class="triple"></div>
-                    <div class="base">
+    foreach($liste as $elt)
+    {
+        $idProduit= $elt->getIdProduit();
+        // var_dump($idProduit);
+        $produit = ProduitsManager::findById($idProduit);
+        // var_dump($produit);
+        $idTypeProduit = $produit->getIdTypeProduit();
+        
+        $typeProduit = TypesproduitsManager::findById($idTypeProduit);
+        
+    
+
+    echo '<div class="espaceHor"></div>';
+        
+            if($idTypeProduit==2)
+            { 
+                echo'<div class="double"><h3>' . $typeProduit->getLibelleTypeProduit().'</h3></div>
+                <div class="espaceHor"></div>';
+                        if($idProduit==$elt->getIdProduit())
+                        {
+                        echo'<div class="info colonne">
                         <div class="triple"></div>
-                        <div class="check centre">
-                            <input type="checkbox" id="base1" class="choix">
-                            <label for="base1"><img src="IMG/tomato-icon.png" alt="sauce tomate"></label>
-                        </div>
+                        <div class="base">
+                            <div class="triple"></div>
+                            <div class="check centre">
+                                <input type="checkbox" id="base1" class="choix" checked>
+                                <label for="base1"><img src="IMG/tomato-icon.png" alt="sauce tomate"></label>
+                            </div>
                         <div class="mini"></div>
-                        <div class="check centre">
-                            <input type="checkbox" id="base2" class="choix">
-                            <label for="base2"><img src="IMG/creme-fraiche.png" alt="crême fraîche"></label>
-                        </div>
+                            <div class="check centre">
+                                <input type="checkbox" id="base2" class="choix">
+                                <label for="base2"><img src="IMG/creme-fraiche.png" alt="crême fraîche"></label>
+                            </div>
+                            <div class="triple"></div>';
+                        }
+            }
+            echo'<div class="espaceHor"></div>';
+            if($idTypeProduit==1)
+            {
+                echo'<div class="double"><h3>' . $typeProduit->getLibelleTypeProduit().'</h3></div>
+                <div class="espaceHor"></div>';
+                if($idProduit==$elt->getIdProduit())
+                {
+                    echo'<div class="info colonne">
+                        <div class="triple"></div>
+                        <div class="base">
+                            <div class="triple"></div>
+                            <div class="check centre">
+                                <input type="checkbox" id="base2" class="choix" checked>
+                                <label for="base2"><img src="IMG/champignon.jpg" alt="champignon"></label>
+                            </div>
+                            <div class="mini"></div>
+                             <div class="check centre">
+                                <input type="checkbox" id="base1" class="choix">
+                                <label for="base2"><img src="IMG/tomato-icon.png" alt="sauce tomate"></label>';
+                }
+            }
+            echo'<div class="espaceHor"></div>';
+            if($idTypeProduit==3)
+            {
+                echo'<div class="double"><h3>' . $typeProduit->getLibelleTypeProduit().'</h3></div>
+                <div class="espaceHor"></div>';
+                if($idProduit==$elt->getIdProduit())
+                {
+                    echo'<div class="info colonne">
+                        <div class="triple"></div>
+                        <div class="base">
+                            <div class="triple"></div>
+                            <div class="check centre">
+                                <input type="checkbox" id="base2" class="choix" checked>
+                                <label for="base2"><img src="IMG/mozzarella.png" alt="mozzarella"></label>
+                            </div>
+                            <div class="mini"></div>
+                             <div class="check centre">
+                                <input type="checkbox" id="base1" class="choix">
+                                <label for="base2"><img src="IMG/tomato-icon.png" alt="sauce tomate"></label>';
+                }
+            }
+            echo'<div class="espaceHor"></div>';
+            if($idTypeProduit==4)
+            {
+                echo'<div class="double"><h3>' . $typeProduit->getLibelleTypeProduit().'</h3></div>
+                <div class="espaceHor"></div>';
+                if($idProduit==$elt->getIdProduit())
+                {
+                    echo'<div class="info colonne">
+                        <div class="triple"></div>
+                        <div class="base">
+                            <div class="triple"></div>
+                            <div class="check centre">
+                                <input type="checkbox" id="base2" class="choix" checked>
+    
+                                <label for="base2"><img src="IMG/jambon.jpg" alt="jambon"></label>
+                            </div>
+                            <div class="mini"></div>
+                             <div class="check centre">
+                                <input type="checkbox" id="base1" class="choix">
+                                <label for="base2"><img src="IMG/tomato-icon.png" alt="sauce tomate"></label>';
+                }
+            }
+                        echo'</div>
                         <div class="triple"></div>
                     </div>
                 </div>
             </div>
         </div> 
-    </div>';
+    </div>';}
 
 ?>
 
+<?php
+
+function afficheCheckBox($listeId, $table, $input, $mode){
+    
+} 

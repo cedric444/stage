@@ -25,25 +25,26 @@ switch ($mode) {
         }
     case "modifier":
         {
-            $idProduitHidden = '<input name= "idUser" value="' . $unProduit->getIdProduit() . '" type= "hidden">';
+            $idProduitHidden = '<input name= "idProduit" value="' . $unProduit->getIdProduit() . '" type= "hidden">';
             $disabled = '';
             $submit = '<button class="bouton"><i class="fas fa-edit"></i> &nbsp Modifier</button><div class="mini"></div>';
+            
             break;
         }
     case "details":
         {
-            $idProduitHidden = '<input name= "idUser" value="' . $unProduit->getIdProduit() . '" type= "hidden">';
+            $idProduitHidden = '<input name= "idProduit" value="' . $unProduit->getIdProduit() . '" type= "hidden">';
             $disabled = 'disabled';
             $submit = "";
             break;
         }
-    case "supprimer":
-        {
-            $idProduitHidden = '<input name= "idUser" value="' . $unProduit->getIdProduit() . '" type= "hidden">';
-            $disabled = 'disabled';
-            $submit = '<button class="bouton"><i class="fas fa-trash-alt"></i>&nbsp Supprimer</button><div class="mini"></div>';
-            break;
-        }
+    // case "supprimer":
+    //     {
+    //         $idProduitHidden = '<input name= "idProduit" value="' . $unProduit->getIdProduit() . '" type= "hidden">';
+    //         $disabled = 'disabled';
+    //         $submit = '<button class="bouton"><i class="fas fa-trash-alt"></i>&nbsp Supprimer</button><div class="mini"></div>';
+    //         break;
+    //     }
 }
 
 echo $formAction;
@@ -71,7 +72,7 @@ echo $idProduitHidden;
             <div>
                 <div class="triple"></div>
                 <div class="info colonne">
-                    <label for="dateDebut">Quantite</label>
+                    <label for="quantite">Quantite</label>
                     <input type="text" id="quantite" <?=$disabled;?> name="quantite" pattern="[0-9]{0,}"
                     value="<?php echo $unProduit->getQuantite();?>">
                 </div>
@@ -84,6 +85,8 @@ echo $idProduitHidden;
                     <label for="typeProduit">Type produit</label>
                     <input type="text" id="typeProduit"<?=$disabled;?> name="typeProduit" pattern="^[a-zA-Z ]{3,}"
                     value="<?php if($mode!="ajouter") echo $TypeProduit->getLibelleTypeProduit();?>">
+                    <label for="idTypeProduit"></label>
+                    <input type="hidden" id="idTypeProduit" name="idTypeProduit" value="<?php echo $unProduit->getIdTypeProduit()?>">
                 </div>
                 <div class="triple"></div>                       
             </div>

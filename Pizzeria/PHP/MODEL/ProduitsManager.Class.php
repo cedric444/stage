@@ -24,10 +24,12 @@ class ProduitsManager
 		$q->bindValue(":quantite", $obj->getQuantite());
 		$q->execute();
 	}
-	public static function delete(Produits $obj)
+	public static function delete($id)
 	{
  		$db=DbConnect::getDb();
-		$db->exec("DELETE FROM Produits WHERE idProduit=" .$obj->getIdProduit());
+		$id=(int) $id;
+		var_dump($id); 
+		$db->exec("DELETE FROM Produits WHERE idProduit=" .$id);
 	}
 	public static function findById($id)
 	{

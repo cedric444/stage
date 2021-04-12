@@ -53,3 +53,15 @@ function afficherPage($page)
 	include $chemin.$nom.'.php';
 	include 'PHP/VIEW/Footer.php';
 }
+
+/**
+ * 
+ * @param  $listeId  Liste des id    array
+ * @param  $table    Table 	
+ * @param  $input    Nom de l'input  string
+ * @param  @mode     mode url		 string
+ * 
+ */
+function afficherCheckBox($listeId, $table, $input, $mode){
+
+}
