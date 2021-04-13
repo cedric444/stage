@@ -3,9 +3,9 @@ use pizzeria;
 INSERT INTO roles(idRole, libelleRole) VALUES(1, "administrateur");
 INSERT INTO roles(idRole, libelleRole) VALUES(2, "client");
 
-INSERT INTO users(idUser, nomUser, prenomUser, adresse, codePostal, ville, mailUser, telUser, motDePasse, nbPointFidelite, idRole) VALUES(1, "doe", "john", "123 main", "59470", "wormhout", "johndoe@gmail.com", "0652545153", "jdoe", 5, 2);
-INSERT INTO users(idUser, nomUser, prenomUser, adresse, codePostal, ville, mailUser, telUser, motDePasse, nbPointFidelite, idRole) VALUES(2, "doe", "jane", "125 main", "59470", "esquelbecq", "johndoe@gmail.com", "0652545154", "jadoe", 3, 2);
-INSERT INTO users(idUser, nomUser, prenomUser, adresse, codePostal, ville, mailUser, telUser, motDePasse, nbPointFidelite, idRole) VALUES(3, "doex", "john", "100 main", "59470", "esquelbecq", "johndoe@gmail.com", "0652545150", "admin", 0, 1);
+INSERT INTO users(idUser, nomUser, prenomUser, adresse, codePostal, ville, mailUser, telUser, motDePasse, nbPointFidelite, idRole) VALUES(1, "doe", "john", "123 main", "59470", "wormhout", "johndoe@gmail.com", "0652545153", "Mdp111!!", 5, 2);
+INSERT INTO users(idUser, nomUser, prenomUser, adresse, codePostal, ville, mailUser, telUser, motDePasse, nbPointFidelite, idRole) VALUES(2, "doe", "jane", "125 main", "59470", "esquelbecq", "johndoe@gmail.com", "0652545154", "Mot2Pass!", 3, 2);
+INSERT INTO users(idUser, nomUser, prenomUser, adresse, codePostal, ville, mailUser, telUser, motDePasse, nbPointFidelite, idRole) VALUES(3, "doex", "john", "100 main", "59470", "esquelbecq", "johndoex@gmail.com", "0652545150", "Password2!", 0, 1);
 
 INSERT INTO typesProduits (idTypeProduit, libelleTypeProduit) VALUES (NULL, "legumes");
 INSERT INTO typesProduits (idTypeProduit, libelleTypeProduit) VALUES (NULL, "base");
@@ -20,11 +20,16 @@ INSERT INTO produits (idProduit, libelleProduit, idTypeProduit) VALUES (NULL, "b
 INSERT INTO produits (idProduit, libelleProduit, idTypeProduit, prixProduit, quantite) VALUES (NULL, "biere", 5, 3, 15);
 INSERT INTO produits (idProduit, libelleProduit, idTypeProduit) VALUES (NULL, "jambon", 2);
 INSERT INTO produits (idProduit, libelleProduit, idTypeProduit, prixProduit, quantite) VALUES (NULL, "mousse chocolat", 6, 4, 12);
+INSERT INTO produits (idProduit, libelleProduit, idTypeProduit) VALUES (NULL, "champignons", 1);
+INSERT INTO produits (idProduit, libelleProduit, idTypeProduit) VALUES (NULL, "fromage", 3);
+
+
 
 INSERT INTO allergenes (idAllergene, libelleAllergene) VALUES (NULL, "arachide");
 
-INSERT INTO recettes (idRecette, libelleRecette, prixRecette, dateDebut, dateFin) VALUES (NULL, "reine", 10, "2021-05-10", "2021-10-11");
-INSERT INTO recettes (idRecette, libelleRecette, prixRecette, dateDebut, dateFin) VALUES (NULL, "bolo", 11, "2021-07-15", "2021-08-14");
+INSERT INTO recettes (idRecette, libelleRecette, prixRecette) VALUES (NULL, "reine", 10);
+INSERT INTO recettes (idRecette, libelleRecette, prixRecette) VALUES (NULL, "bolo", 11);
+INSERT INTO recettes (idRecette, libelleRecette, prixRecette, dateDebut, dateFin) VALUES (NULL, "printanière", 11, "2021-04-21", "2021-05-21");
 
 INSERT INTO taillesPizzas (idTaillePizza, libelleTaillePizza, tarifSupplement) VALUES (NULL, 25, 0.80);
 INSERT INTO taillesPizzas (idTaillePizza, libelleTaillePizza, tarifSupplement) VALUES (NULL, 28, 1);

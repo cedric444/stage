@@ -27,7 +27,7 @@ CREATE TABLE produits(
     idTypeProduit           INT  NOT NULL,
     prixProduit             FLOAT    ,
     quantite                INT,
-    image                   VARCHAR,
+    image                   VARCHAR(255)
 )ENGINE=InnoDB, CHARSET = UTF8;
 
 CREATE TABLE allergenes(
@@ -39,9 +39,9 @@ CREATE TABLE recettes(
     idRecette               INT  AUTO_INCREMENT  NOT NULL  PRIMARY KEY,
     libelleRecette          VARCHAR(50)  NOT NULL,
     prixRecette             FLOAT  NOT NULL,
-    imagePizza              VARCHAR(150) NULL,
-    dateDebut               DATE  NOT NULL,
-    dateFin                 DATE NOT NULL 
+    imagePizza              VARCHAR(150),
+    dateDebut               DATE,
+    dateFin                 DATE  
 )ENGINE=InnoDB, CHARSET = UTF8;
 
 CREATE TABLE taillesPizzas(
@@ -65,7 +65,7 @@ CREATE TABLE users(
     mailUser         VARCHAR(150)  NOT NULL,
     telUser          VARCHAR(10)  NOT NULL,
     motDePasse       VARCHAR(100)  NOT NULL,
-    nbPointFidelite  INT(3)  NULL,
+    nbPointFidelite  INT(3),
     idRole           INT  NOT NULL
 )ENGINE=InnoDB, CHARSET = UTF8;
 
@@ -92,9 +92,9 @@ CREATE TABLE lignesDeCommandes(
     idLigneDeCommande           INT  AUTO_INCREMENT  NOT NULL  PRIMARY KEY,
     idCommande                  INT  NOT NULL,
     quantite                    INT  NOT NULL,
-    idProduit                   INT  NULL,
-    idTaillePizza               INT  NULL,
-    idPizza                     INT  NULL,
+    idProduit                   INT,
+    idTaillePizza               INT,
+    idPizza                     INT,
     prix                        FLOAT  NOT NULL
 )ENGINE=InnoDB, CHARSET = UTF8;
 
