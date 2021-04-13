@@ -2,6 +2,7 @@
 
 $mode = $_GET['mode'];
 $user = new Users($_POST);
+var_dump($user);
 switch ($mode) {
     case "ajouter":
         {
@@ -20,4 +21,4 @@ switch ($mode) {
         }
 
 }
-header("location:index.php?page=ListeUsers");
+// header("location:index.php?page=ListeUsers");

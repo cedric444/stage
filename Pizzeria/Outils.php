@@ -57,11 +57,40 @@ function afficherPage($page)
 /**
  * 
  * @param  $listeId  Liste des id    array
- * @param  $table    Table 	
+ * @param  $table    Table 			 string
  * @param  $input    Nom de l'input  string
  * @param  @mode     mode url		 string
  * 
+ * @return HTML
+ * 
  */
 function afficherCheckBox($listeId, $table, $input, $mode){
+	$nomManager = $table.'Manager';
+	$disabled= '';
+	$nom= substr($table, 0, -1);
+	$nomId= 'getLibelle'.$nom;
+	
+	if($mode =="ajouter")
+	{
+		$disabled='disabled';
+	}
 
+	foreach($listeId as $id)
+	{	
+		$obj = $nomManager::findById($id);
+		// var_dump($obj);
+		$image= $obj->getImage();
+		// var_dump($image);
+		echo'
+		<div class="base">
+			
+			<div class="check centre">
+				<input type="checkbox" '.$disabled.' id="'.$obj->$nomId().'"><label for="'.$obj->$nomId().'"><img src="IMG/'.$image.'"></label>
+				<input name="'.$input.'" value="'.$id.'" type="hidden">
+			</div>
+		</div>
+		<div class="mini"></div>';
+	}
+	
+	
 }

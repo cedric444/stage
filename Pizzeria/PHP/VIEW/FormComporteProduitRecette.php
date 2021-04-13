@@ -68,106 +68,114 @@ $liste= ComporteproduitrecetteManager::getByRecette($_GET['idRecette']);
         
     
 
-    echo '<div class="espaceHor"></div>';
+    // echo '<div class="espaceHor"></div>';
         
-            if($idTypeProduit==2)
-            { 
-                echo'<div class="double"><h3>' . $typeProduit->getLibelleTypeProduit().'</h3></div>
-                <div class="espaceHor"></div>';
-                        if($idProduit==$elt->getIdProduit())
-                        {
-                        echo'<div class="info colonne">
-                        <div class="triple"></div>
-                        <div class="base">
-                            <div class="triple"></div>
-                            <div class="check centre">
-                                <input type="checkbox" id="base1" class="choix" checked>
-                                <label for="base1"><img src="IMG/tomato-icon.png" alt="sauce tomate"></label>
-                            </div>
-                        <div class="mini"></div>
-                            <div class="check centre">
-                                <input type="checkbox" id="base2" class="choix">
-                                <label for="base2"><img src="IMG/creme-fraiche.png" alt="crême fraîche"></label>
-                            </div>
-                            <div class="triple"></div>';
-                        }
-            }
-            echo'<div class="espaceHor"></div>';
-            if($idTypeProduit==1)
-            {
-                echo'<div class="double"><h3>' . $typeProduit->getLibelleTypeProduit().'</h3></div>
-                <div class="espaceHor"></div>';
-                if($idProduit==$elt->getIdProduit())
-                {
-                    echo'<div class="info colonne">
-                        <div class="triple"></div>
-                        <div class="base">
-                            <div class="triple"></div>
-                            <div class="check centre">
-                                <input type="checkbox" id="base2" class="choix" checked>
-                                <label for="base2"><img src="IMG/champignon.jpg" alt="champignon"></label>
-                            </div>
-                            <div class="mini"></div>
-                             <div class="check centre">
-                                <input type="checkbox" id="base1" class="choix">
-                                <label for="base2"><img src="IMG/tomato-icon.png" alt="sauce tomate"></label>';
-                }
-            }
-            echo'<div class="espaceHor"></div>';
-            if($idTypeProduit==3)
-            {
-                echo'<div class="double"><h3>' . $typeProduit->getLibelleTypeProduit().'</h3></div>
-                <div class="espaceHor"></div>';
-                if($idProduit==$elt->getIdProduit())
-                {
-                    echo'<div class="info colonne">
-                        <div class="triple"></div>
-                        <div class="base">
-                            <div class="triple"></div>
-                            <div class="check centre">
-                                <input type="checkbox" id="base2" class="choix" checked>
-                                <label for="base2"><img src="IMG/mozzarella.png" alt="mozzarella"></label>
-                            </div>
-                            <div class="mini"></div>
-                             <div class="check centre">
-                                <input type="checkbox" id="base1" class="choix">
-                                <label for="base2"><img src="IMG/tomato-icon.png" alt="sauce tomate"></label>';
-                }
-            }
-            echo'<div class="espaceHor"></div>';
-            if($idTypeProduit==4)
-            {
-                echo'<div class="double"><h3>' . $typeProduit->getLibelleTypeProduit().'</h3></div>
-                <div class="espaceHor"></div>';
-                if($idProduit==$elt->getIdProduit())
-                {
-                    echo'<div class="info colonne">
-                        <div class="triple"></div>
-                        <div class="base">
-                            <div class="triple"></div>
-                            <div class="check centre">
-                                <input type="checkbox" id="base2" class="choix" checked>
+    //         if($idTypeProduit==2)
+    //         { 
+    //             echo'<div class="double"><h3>' . $typeProduit->getLibelleTypeProduit().'</h3></div>
+    //             <div class="espaceHor"></div>';
+    //                     if($idProduit==$elt->getIdProduit())
+    //                     {
+    //                     echo'<div class="info colonne">
+    //                     <div class="triple"></div>
+    //                     <div class="base">
+    //                         <div class="triple"></div>
+    //                         <div class="check centre">
+    //                             <input type="checkbox" id="base1" class="choix" checked>
+    //                             <label for="base1"><img src="IMG/tomato-icon.png" alt="sauce tomate"></label>
+    //                         </div>
+    //                     <div class="mini"></div>
+    //                         <div class="check centre">
+    //                             <input type="checkbox" id="base2" class="choix">
+    //                             <label for="base2"><img src="IMG/creme-fraiche.png" alt="crême fraîche"></label>
+    //                         </div>
+    //                         <div class="triple"></div>';
+    //                     }
+    //         }
+    //         echo'<div class="espaceHor"></div>';
+    //         if($idTypeProduit==1)
+    //         {
+    //             echo'<div class="double"><h3>' . $typeProduit->getLibelleTypeProduit().'</h3></div>
+    //             <div class="espaceHor"></div>';
+    //             if($idProduit==$elt->getIdProduit())
+    //             {
+    //                 echo'<div class="info colonne">
+    //                     <div class="triple"></div>
+    //                     <div class="base">
+    //                         <div class="triple"></div>
+    //                         <div class="check centre">
+    //                             <input type="checkbox" id="base2" class="choix" checked>
+    //                             <label for="base2"><img src="IMG/champignon.jpg" alt="champignon"></label>
+    //                         </div>
+    //                         <div class="mini"></div>
+    //                          <div class="check centre">
+    //                             <input type="checkbox" id="base1" class="choix">
+    //                             <label for="base2"><img src="IMG/tomato-icon.png" alt="sauce tomate"></label>';
+    //             }
+    //         }
+    //         echo'<div class="espaceHor"></div>';
+    //         if($idTypeProduit==3)
+    //         {
+    //             echo'<div class="double"><h3>' . $typeProduit->getLibelleTypeProduit().'</h3></div>
+    //             <div class="espaceHor"></div>';
+    //             if($idProduit==$elt->getIdProduit())
+    //             {
+    //                 echo'<div class="info colonne">
+    //                     <div class="triple"></div>
+    //                     <div class="base">
+    //                         <div class="triple"></div>
+    //                         <div class="check centre">
+    //                             <input type="checkbox" id="base2" class="choix" checked>
+    //                             <label for="base2"><img src="IMG/mozzarella.png" alt="mozzarella"></label>
+    //                         </div>
+    //                         <div class="mini"></div>
+    //                          <div class="check centre">
+    //                             <input type="checkbox" id="base1" class="choix">
+    //                             <label for="base2"><img src="IMG/tomato-icon.png" alt="sauce tomate"></label>';
+    //             }
+    //         }
+    //         echo'<div class="espaceHor"></div>';
+    //         if($idTypeProduit==4)
+    //         {
+    //             echo'<div class="double"><h3>' . $typeProduit->getLibelleTypeProduit().'</h3></div>
+    //             <div class="espaceHor"></div>';
+    //             if($idProduit==$elt->getIdProduit())
+    //             {
+    //                 echo'<div class="info colonne">
+    //                     <div class="triple"></div>
+    //                     <div class="base">
+    //                         <div class="triple"></div>
+    //                         <div class="check centre">
+    //                             <input type="checkbox" id="base2" class="choix" checked>
     
-                                <label for="base2"><img src="IMG/jambon.jpg" alt="jambon"></label>
-                            </div>
-                            <div class="mini"></div>
-                             <div class="check centre">
-                                <input type="checkbox" id="base1" class="choix">
-                                <label for="base2"><img src="IMG/tomato-icon.png" alt="sauce tomate"></label>';
-                }
-            }
-                        echo'</div>
-                        <div class="triple"></div>
-                    </div>
-                </div>
-            </div>
-        </div> 
-    </div>';}
-
+    //                             <label for="base2"><img src="IMG/jambon.jpg" alt="jambon"></label>
+    //                         </div>
+    //                         <div class="mini"></div>
+    //                          <div class="check centre">
+    //                             <input type="checkbox" id="base1" class="choix">
+    //                             <label for="base2"><img src="IMG/tomato-icon.png" alt="sauce tomate"></label>';
+    //             }
+    //         }
+    //                     echo'</div>
+    //                     <div class="triple"></div>
+    //                 </div>
+    //             </div>
+    //         </div>
+    //     </div> 
+    // </div>';
+        $liste= ProduitsManager::getByTypeProduit($idTypeProduit);
+        // foreach($liste as $elt)
+        // {
+        //     $id = $elt->getIdProduit();
+        //     // var_dump($id);
+        //     $listeId[] = $id;
+        // }
+        
+            $listeId[] = $elt->getIdProduit();
+        var_dump($listeId);
+        // echo'<div class="double"><h3>' . $typeProduit->getLibelleTypeProduit().'</h3></div>
+        // <div class="espaceHor"></div>';
+        //  afficherCheckBox($listeId, 'Produits', 'idProduit', 'modifier');
+}
+    
 ?>
-
-<?php
-
-function afficheCheckBox($listeId, $table, $input, $mode){
-    
-} 

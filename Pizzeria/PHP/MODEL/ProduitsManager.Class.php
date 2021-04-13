@@ -5,23 +5,25 @@ class ProduitsManager
 	public static function add(Produits $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Produits (libelleProduit,idTypeProduit,prixProduit,quantite) VALUES (:libelleProduit,:idTypeProduit,:prixProduit,:quantite)");
+		$q=$db->prepare("INSERT INTO Produits (libelleProduit,idTypeProduit,prixProduit,quantite,image) VALUES (:libelleProduit,:idTypeProduit,:prixProduit,:quantite,:image)");
 		$q->bindValue(":libelleProduit", $obj->getLibelleProduit());
 		$q->bindValue(":idTypeProduit", $obj->getIdTypeProduit());
 		$q->bindValue(":prixProduit", $obj->getPrixProduit());
 		$q->bindValue(":quantite", $obj->getQuantite());
+		$q->bindValue(":image", $obj->getImage());
 		$q->execute();
 	}
 
 	public static function update(Produits $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Produits SET idProduit=:idProduit,libelleProduit=:libelleProduit,idTypeProduit=:idTypeProduit,prixProduit=:prixProduit,quantite=:quantite WHERE idProduit=:idProduit");
+		$q=$db->prepare("UPDATE Produits SET idProduit=:idProduit,libelleProduit=:libelleProduit,idTypeProduit=:idTypeProduit,prixProduit=:prixProduit,quantite=:quantite,image=:image WHERE idProduit=:idProduit");
 		$q->bindValue(":idProduit", $obj->getIdProduit());
 		$q->bindValue(":libelleProduit", $obj->getLibelleProduit());
 		$q->bindValue(":idTypeProduit", $obj->getIdTypeProduit());
 		$q->bindValue(":prixProduit", $obj->getPrixProduit());
 		$q->bindValue(":quantite", $obj->getQuantite());
+		$q->bindValue(":image", $obj->getImage());
 		$q->execute();
 	}
 	public static function delete($id)

@@ -12,7 +12,7 @@ if (isset($_GET['id'])) {
 
 $formAction = '<form action="index.php?page=ActionProduit&mode='.$mode.'" method="POST">';
 $idTypeProduit= $unProduit->getIdTypeProduit();
-$TypeProduit = TypesproduitsManager::findById($idTypeProduit);
+$typeProduit = TypesproduitsManager::findById($idTypeProduit);
 
 
 switch ($mode) {
@@ -55,7 +55,7 @@ echo $idProduitHidden;
                 <div class="triple"></div>
                 <div class="info colonne ">
                     <label for="libelleProduit">Libelle</label>
-                    <input type="text" id="libelle" <?=$disabled;?> name="libelleProduit" value="<?=$unProduit->getLibelleProduit();?>" required pattern="[a-zA-Z- ]{3,}">
+                    <input type="text" id="libelle" <?=$disabled;?> name="libelleProduit" value="<?=$unProduit->getLibelleProduit();?>" required pattern="[a-zA-Z- ]{3,}"/>
                 </div>
                 <div class="triple"></div>
             </div>
@@ -64,7 +64,7 @@ echo $idProduitHidden;
                 <div class="triple"></div>
                 <div class="info colonne ">
                     <label for="prixProduit">Prix</label>
-                    <input type="text" id="prixProduit" <?=$disabled;?> name="prixProduit" value="<?=$unProduit->getPrixProduit();?>" pattern="^[0-9]{1,2}[.,]{1}[0-9]{1,2}$">
+                    <input type="text" id="prixProduit" <?=$disabled;?> name="prixProduit" value="<?=$unProduit->getPrixProduit();?>" pattern="^[0-9]{1,2}[.,]{1}[0-9]{1,2}$"/>
                 </div>
                 <div class="triple"></div>
             </div>
@@ -74,7 +74,7 @@ echo $idProduitHidden;
                 <div class="info colonne">
                     <label for="quantite">Quantite</label>
                     <input type="text" id="quantite" <?=$disabled;?> name="quantite" pattern="[0-9]{0,}"
-                    value="<?php echo $unProduit->getQuantite();?>">
+                    value="<?php echo $unProduit->getQuantite();?>"/>
                 </div>
                 <div class="triple"></div>
             </div>
@@ -84,13 +84,23 @@ echo $idProduitHidden;
                 <div class="info colonne">
                     <label for="typeProduit">Type produit</label>
                     <input type="text" id="typeProduit"<?=$disabled;?> name="typeProduit" pattern="^[a-zA-Z ]{3,}"
-                    value="<?php if($mode!="ajouter") echo $TypeProduit->getLibelleTypeProduit();?>">
+                    value="<?php if($mode!="ajouter") echo $typeProduit->getLibelleTypeProduit();?>"/>
                     <label for="idTypeProduit"></label>
-                    <input type="hidden" id="idTypeProduit" name="idTypeProduit" value="<?php echo $unProduit->getIdTypeProduit()?>">
+                    <input type="hidden" id="idTypeProduit" name="idTypeProduit" value="<?php echo $unProduit->getIdTypeProduit()?>"/>
                 </div>
                 <div class="triple"></div>                       
             </div>
             <div class="espaceHor"></div>
+            <div>
+                <div class="triple"></div>
+                <div class="info colonne">
+                    <label for="image">Image</label>
+                    <input type="hidden" name="MAX_FILE_SIZE" value="250000"/>
+                    <input type="file" id="image"<?=$disabled;?> name="image" size=50 pattern="^[a-zA-Z.]{3,}"
+                    value="/IMG/<?php if($mode!="ajouter") echo $unProduit->getImage();?>"/>
+                </div>
+                <div class="triple"></div>                       
+            </div>
             <div class="info">
             <?php
             

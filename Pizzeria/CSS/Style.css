@@ -136,11 +136,11 @@ footer {
 
 /* :checked + label:before {
     font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f00c";
-    /* remplace par couleur de ton background */
-    background-color: white;
+    /* remplace par couleur de ton background  */
+    /* background-color: white; 
     color: green;
     transform: scale(1);
-  } */
+  } */ */
 
 :checked + label img {
     transform: scale(0.9);
@@ -160,7 +160,7 @@ label{
     z-index: 10;
 }
 
-label:before {
+/* label:before {
     content: "";
     display: block;
     position: absolute;
@@ -172,4 +172,4 @@ label:before {
     line-height: 1.1em;
     transition-duration: 0.4s;
     transform: scale(0);
-  }
+  } */

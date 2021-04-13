@@ -26,7 +26,8 @@ CREATE TABLE produits(
     libelleProduit          VARCHAR(100)  NOT NULL,
     idTypeProduit           INT  NOT NULL,
     prixProduit             FLOAT    ,
-    quantite                INT
+    quantite                INT,
+    image                   VARCHAR,
 )ENGINE=InnoDB, CHARSET = UTF8;
 
 CREATE TABLE allergenes(

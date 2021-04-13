@@ -35,4 +35,4 @@ switch ($mode) {
     //     }
 
 }
-// header("location:index.php?page=ListeProduits");
+header("location:index.php?page=ListeProduits");

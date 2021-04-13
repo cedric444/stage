@@ -10,6 +10,7 @@ class Produits
 	private $_idTypeProduit;
 	private $_prixProduit;
 	private $_quantite;
+	private $_image;
 
 	/***************** Accesseurs ***************** */
 
@@ -62,6 +63,17 @@ class Produits
 	public function setQuantite($quantite)
 	{
 		$this->_quantite=$quantite;
+	}
+
+	public function getImage()
+	{
+		return $this->_image;
+	}
+
+	public function setImage($image)
+	{
+		$this->_image = $image;
+
 	}
 
 	/*****************Constructeur***************** */
@@ -125,4 +137,5 @@ class Produits
 	{
 		return;
 	}
+
 }
