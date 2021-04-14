@@ -69,29 +69,37 @@ $liste= ComporteproduitrecetteManager::getByRecette($_GET['idRecette']);
         
     }
 
-    echo'<div class"double"><h3>'.$typeProduit->getLibelleTypeProduit().'</h3></div>';
+    echo'<div class"double"><h3>'.$typeProduit->getLibelleTypeProduit().'</h3></div>
+    <div>';
+    
 
     //On récupère la liste des produits
     $listeProduits = ProduitsManager::getList();
     // var_dump($listeProduits);
+
     //Puis les id
-    for($i=0;$i<count($listeProduits);$i++)
+    foreach($listeProduits as $produit)
     {
-        $idProduit[$i] =$produit->getIdProduit();
-        // var_dump($idProduit);
-        $produitIdType= $produit->getIdTypeProduit();
-        $listeId[] = $idProduit;
+        $listeId[] =$produit->getIdProduit();
+        // var_dump($listeProduits);
+        $produitIdTypes[] = $produit->getIdTypeProduit();
     }
     
-    var_dump($listeId);
-    // var_dump($produitIdType);
+    // var_dump($listeId);
+    // var_dump($produitIdTypes);
     // var_dump($idTypeProduit);
-        
-        // if($produitIdType==$idTypeProduit)
-        // {
-        //     afficherCheckBox($listeId,"Produits","idProduit","modifier");
-        // }
-    
+        foreach($produitIdTypes as $idType)
+        {
+            echo'<div class="colonne">';
+            if($idType==$idTypeProduit)
+            {
+                echo'<div class="triple"></div>';
+                afficherCheckBox($listeId,"Produits","idProduit","modifier");
+                echo'<div class="triple"></div>';
+            }
+            echo'</div>';
+        }
+    echo'</div>';
 
 
 
