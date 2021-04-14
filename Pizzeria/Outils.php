@@ -82,13 +82,13 @@ function afficherCheckBox($listeId, $table, $input, $mode){
 		$image= $obj->getImage();
 		// var_dump($image);
 		echo'
-		<div class="base">
+		
 			
 			<div class="check centre">
 				<input type="checkbox" '.$disabled.' id="'.$obj->$nomId().'"><label for="'.$obj->$nomId().'"><img src="IMG/'.$image.'"></label>
 				<input name="'.$input.'" value="'.$id.'" type="hidden">
 			</div>
-		</div>
+		
 		<div class="mini"></div>';
 	}
 	

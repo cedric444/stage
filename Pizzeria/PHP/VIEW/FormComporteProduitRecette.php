@@ -84,13 +84,13 @@ $liste= ComporteproduitrecetteManager::getByRecette($_GET['idRecette']);
         // var_dump($listeProduits);
         $produitIdTypes[] = $produit->getIdTypeProduit();
     }
-    
+    // echo'<div>';
     // var_dump($listeId);
     // var_dump($produitIdTypes);
     // var_dump($idTypeProduit);
         foreach($produitIdTypes as $idType)
         {
-            echo'<div class="colonne">';
+            // echo'<div class="colonne">';
             if($idType==$idTypeProduit)
             {
                 echo'<div class="triple"></div>';
@@ -99,7 +99,7 @@ $liste= ComporteproduitrecetteManager::getByRecette($_GET['idRecette']);
             }
             echo'</div>';
         }
-    echo'</div>';
+    //  echo'</div>';
 
 
 
