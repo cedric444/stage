@@ -10,7 +10,7 @@ if (isset($_GET['id'])) {
     $unProduit = new Produits();
 }
 
-$formAction = '<form action="index.php?page=ActionProduit&mode='.$mode.'" method="POST">';
+$formAction = '<form action="index.php?page=ActionProduit&mode='.$mode.'" method="POST" enctype="multipart/form-data">';
 $idTypeProduit= $unProduit->getIdTypeProduit();
 $typeProduit = TypesproduitsManager::findById($idTypeProduit);
 
@@ -95,9 +95,22 @@ echo $idProduitHidden;
                 <div class="triple"></div>
                 <div class="info colonne">
                     <label for="image">Image</label>
-                    <input type="hidden" name="MAX_FILE_SIZE" value="250000"/>
-                    <input type="file" id="image"<?=$disabled;?> name="image" size=50 pattern="^[a-zA-Z.]{3,}"
-                    value="/IMG/<?php if($mode!="ajouter") echo $unProduit->getImage();?>"/>
+                    <?php
+                    if($mode=="ajouter")
+                    {
+                        echo'<input type="file" id="image" '.$disabled.' name="image">';
+                    }
+                    else
+                    {
+                        echo'<input type="text" name="image" hidden value="'.$unProduit->getImage().'">';
+                        echo'<img id="image" alt="image du produit" src="IMG/'.$unProduit->getImage().'">';
+                        if($mode=="modifier")
+                        {
+                        echo'<button type="button" class="bouton"><i class="fas fa-edit"></i> &nbsp Modifier l\'image</button>';
+                        }
+                    }
+                    ?>
+                
                 </div>
                 <div class="triple"></div>                       
             </div>

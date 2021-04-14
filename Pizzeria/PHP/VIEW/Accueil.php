@@ -14,6 +14,6 @@ else
 
 ?>
 <div class="espaceHor"></div>
-<div class="triple"></div><button class="bouton"><a href="index.php?page=FormUser&mode=ajouter"> Inscription</a></button><div class="triple"></div>
+<div class="triple"></div><a href="index.php?page=FormUser&mode=ajouter"><button class="bouton"> Inscription</button></a><div class="triple"></div>
 <div class="espaceHor"></div>
-<div class="triple"></div><button class="bouton"><a href="index.php?page=FormConnexion">Connexion</a></button><div class="triple"></div>
+<div class="triple"></div><a href="index.php?page=FormConnexion"><button class="bouton">Connexion</button></a><div class="triple"></div>

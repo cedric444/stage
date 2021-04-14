@@ -59,6 +59,9 @@ $routes=[
 	"FormCommande"=>["PHP/VIEW/", "FormCommande", "Formulaire des commandes"],
 	"ActionCommande"=>["PHP/VIEW/", "ActionCommande", "Action sur la commande"],
 
+	"InterfaceDonnees"=>["PHP/VIEW/", "InterfaceDonnees", "Interface de l'administrateur"],
+	"InterfaceUser"=>["PHP/VIEW/", "InterfaceUser", "Interface de l'utilisateur"],
+
 	// "TestallergenesManager"=>["PHP/MODEL/TESTMANAGER/","TestallergenesManager","Test de allergenes"],
 	// "TestallergenesproduitManager"=>["PHP/MODEL/TESTMANAGER/","TestallergenesproduitManager","Test de allergenesproduit"],
 	// "TestcommandepizzaManager"=>["PHP/MODEL/TESTMANAGER/","TestcommandepizzaManager","Test de commandepizza"],
