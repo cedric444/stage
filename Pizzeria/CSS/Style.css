@@ -118,7 +118,7 @@ footer {
     margin-top: 1em;
     align-items: center;
     justify-content: center;
-    position: fixed;
+    position: sticky;
     width: 99%;
     bottom: 0.2em;
     color: var(--CouleurTexte);

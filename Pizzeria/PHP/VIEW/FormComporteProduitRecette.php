@@ -2,7 +2,7 @@
 
 <?php
 
-// $mode = $_GET['mode'];
+$mode = $_GET['mode'];
 $recette = RecettesManager::findById($_GET["idRecette"]);
 
 $liste= ComporteproduitrecetteManager::getByRecette($_GET['idRecette']);
@@ -94,7 +94,7 @@ $liste= ComporteproduitrecetteManager::getByRecette($_GET['idRecette']);
             if($idType==$idTypeProduit)
             {
                 echo'<div class="triple"></div>';
-                afficherCheckBox($listeId,"Produits","idProduit","modifier");
+                afficherCheckBox($listeId,"Produits","idProduit",$mode);
                 echo'<div class="triple"></div>';
             }
             echo'</div>';

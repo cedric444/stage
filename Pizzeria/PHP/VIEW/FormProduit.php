@@ -10,7 +10,7 @@ if (isset($_GET['id'])) {
     $unProduit = new Produits();
 }
 
-$formAction = '<form action="index.php?page=ActionProduit&mode='.$mode.'" method="POST">';
+$formAction = '<form action="index.php?page=ActionProduit&mode='.$mode.'" method="POST" enctype="multipart/form-data">';
 $idTypeProduit= $unProduit->getIdTypeProduit();
 $typeProduit = TypesproduitsManager::findById($idTypeProduit);
 
@@ -114,7 +114,7 @@ echo $idProduitHidden;
                     echo'<input type="text" name="image" hidden value="'.$unProduit->getImage().'">';
                     echo'<img id="image" alt="image du produit" src="IMG/'.$unProduit->getImage().'">';?>
                     <input type="hidden" name="MAX_FILE_SIZE" value="250000"/>
-                    <input type="file" id="image"<?=$disabled;?> name="image" size=50 pattern="^[a-zA-Z.]{3,}"
+                    <input type="file" id="image"  name="image" size=50 
                     value="/IMG/<?php if($mode!="ajouter") echo $unProduit->getImage();?>"/>
                 </div>
                 <div class="triple"></div>                       
