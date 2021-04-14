@@ -56,6 +56,7 @@ $liste= ComporteproduitrecetteManager::getByRecette($_GET['idRecette']);
     echo '<div class="info colonne>
     <div class="titre centre"><h2>'.$recette->getLibelleRecette(). '</h2></div></div>';
 
+    // On récupère les id des types de produits pour les afficher
     foreach($liste as $elt)
     {
         $idProduit= $elt->getIdProduit();
@@ -66,7 +67,41 @@ $liste= ComporteproduitrecetteManager::getByRecette($_GET['idRecette']);
         
         $typeProduit = TypesproduitsManager::findById($idTypeProduit);
         
+    }
+
+    echo'<div class"double"><h3>'.$typeProduit->getLibelleTypeProduit().'</h3></div>';
+
+    //On récupère la liste des produits
+    $listeProduits = ProduitsManager::getList();
+    // var_dump($listeProduits);
+    //Puis les id
+    for($i=0;$i<count($listeProduits);$i++)
+    {
+        $idProduit[$i] =$produit->getIdProduit();
+        // var_dump($idProduit);
+        $produitIdType= $produit->getIdTypeProduit();
+        $listeId[] = $idProduit;
+    }
     
+    var_dump($listeId);
+    // var_dump($produitIdType);
+    // var_dump($idTypeProduit);
+        
+        // if($produitIdType==$idTypeProduit)
+        // {
+        //     afficherCheckBox($listeId,"Produits","idProduit","modifier");
+        // }
+    
+
+
+
+
+
+
+
+
+
+
 
     // echo '<div class="espaceHor"></div>';
         
@@ -163,19 +198,6 @@ $liste= ComporteproduitrecetteManager::getByRecette($_GET['idRecette']);
     //         </div>
     //     </div> 
     // </div>';
-        $liste= ProduitsManager::getByTypeProduit($idTypeProduit);
-        // foreach($liste as $elt)
-        // {
-        //     $id = $elt->getIdProduit();
-        //     // var_dump($id);
-        //     $listeId[] = $id;
-        // }
-        
-            $listeId[] = $elt->getIdProduit();
-        var_dump($listeId);
-        // echo'<div class="double"><h3>' . $typeProduit->getLibelleTypeProduit().'</h3></div>
-        // <div class="espaceHor"></div>';
-        //  afficherCheckBox($listeId, 'Produits', 'idProduit', 'modifier');
-}
+    
     
 ?>
