@@ -1,4 +1,4 @@
-<div></div>
+
 </div>
 <footer>
     <h3>&copy;Cedric Pietka</h3>

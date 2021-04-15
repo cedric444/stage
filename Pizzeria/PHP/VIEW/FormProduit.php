@@ -10,7 +10,7 @@ if (isset($_GET['id'])) {
     $unProduit = new Produits();
 }
 
-$formAction = '<form action="index.php?page=ActionProduit&mode='.$mode.'" method="POST" enctype="multipart/form-data">';
+$formAction = '<form action="index.php?page=ActionProduit&mode='.$mode.'" method="POST" >';
 $idTypeProduit= $unProduit->getIdTypeProduit();
 $typeProduit = TypesproduitsManager::findById($idTypeProduit);
 

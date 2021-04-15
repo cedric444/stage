@@ -21,6 +21,7 @@ $lang=isset($_SESSION['lang']) ? $_SESSION['lang'] : 'FR';
 
 $routes=[
 	"default"=>["PHP/VIEW/","Accueil","Accueil"],
+	"Menu"=>["PHP/VIEW/", "Menu", "Menu"],
 
 	"FormConnexion"=>["PHP/VIEW/", "FormConnexion", "Formulaire  de connexion"],
 	"ActionConnexion"=>["PHP/VIEW/", "ActionConnexion", "Action sur la connexion"],
@@ -62,7 +63,9 @@ $routes=[
 	"InterfaceDonnees"=>["PHP/VIEW/", "InterfaceDonnees", "Interface de l'administrateur"],
 	"InterfaceUser"=>["PHP/VIEW/", "InterfaceUser", "Interface de l'utilisateur"],
 
-	"SelectionPizza"=>["PHP/VIEW/", "SelectionPizza", "page de sélection de pizza"],
+	"SelectionPizzas"=>["PHP/VIEW/", "SelectionPizzas", "page de sélection des pizzas"],
+	"SelectionBoissons"=>["PHP/VIEW/", "SelectionBoissons", "page de selection des boissons"],
+	"SelectionDesserts"=>["PHP/VIEW/", "SelectionDesserts", "page de selection des desserts"],
 
 	// "TestallergenesManager"=>["PHP/MODEL/TESTMANAGER/","TestallergenesManager","Test de allergenes"],
 	// "TestallergenesproduitManager"=>["PHP/MODEL/TESTMANAGER/","TestallergenesproduitManager","Test de allergenesproduit"],

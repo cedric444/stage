@@ -6,5 +6,5 @@ if($role == 1)
 }
 else
 {
-    header("location:index.php?page=SelectionPizza");
+    header("location:index.php?page=Menu");
 }
