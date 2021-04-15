@@ -1,18 +1,27 @@
 <section>
+<div class="info colonne">
 <?php
 
 
 
 
 $pizzas = PizzasManager::getList();
-// var_dump($pizzas);
-foreach($pizzas as $unePizza)
+
+
+for($i=0;$i<count($pizzas);$i++)
 {
-    $idRecette = $unePizza->getIdRecette();
-    $recette = RecettesManager::findById($idRecette);
-    echo'<div class="info colonne>
-        <div class="titre centre"><h2>'.$recette->getLibelleRecette(). '</h2></div></div>
-        <div class="espaceHor">
-        <div class="image centre">
-        <img src="IMG/'.$recette->getImagePizza().'" alt="'.$recette->getLibelleRecette().'">';
+    $pizza = $pizzas[$i];
+    $idRecettes[] =$pizza->getIdRecette();
+}
+var_dump($idRecettes);
+$idRecette = array_unique($idRecettes);
+var_dump($idRecette);
+foreach($idRecette as $uneIdRecette)
+{
+    $recette=RecettesManager::findById($uneIdRecette);
+    echo'<div class="titre centre"><h2>'.$recette->getLibelleRecette(). '</h2></div></div>
+         <div class="espaceHor">
+         <div class="image centre">
+         <img src="IMG/'.$recette->getImagePizza().'" alt="'.$recette->getLibelleRecette().'">';
+
 }

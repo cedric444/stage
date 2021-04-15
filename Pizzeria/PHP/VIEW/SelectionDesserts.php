@@ -11,7 +11,6 @@
 <div class="espaceHor"></div>
 
 <?php
-$mode=$_GET['mode'];
 $listetypesProduits=TypesproduitsManager::getList();
 foreach($listetypesProduits as $typeProduit) 
 {
@@ -30,14 +29,11 @@ $listeDesserts = ProduitsManager::getByTypeProduit($idTypeProduit);
 
 foreach($listeDesserts as $dessert)
 {
-    // echo'<div class="double"><img src="IMG/'.$dessert->getImage().'" alt="'.$dessert->getLibelleProduit().'"></div>
-    // <div class="mini"></mini>
-    // <div class="double">'.$dessert->getLibelleProduit().'</div>
-    // <div class="mini"></div>
-    // <div class="double">'.$dessert->getPrixProduit().'</div>';
-    $listeId[]=$dessert->getIdProduit();
-
-    afficherCheckBox($listeId, "Produits","idProduits",$mode);
+    echo'<div class="double"><img src="IMG/'.$dessert->getImage().'" alt="'.$dessert->getLibelleProduit().'"></div>
+    <div class="mini"></mini>
+    <div class="double">'.$dessert->getLibelleProduit().'</div>
+    <div class="mini"></div>
+    <div class="double">'.$dessert->getPrixProduit().'</div>';
 }
 ?>
 

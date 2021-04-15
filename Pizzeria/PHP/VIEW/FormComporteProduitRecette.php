@@ -40,38 +40,9 @@ $liste= ComporteproduitrecetteManager::getByRecette($_GET['idRecette']);
 //         }
 // }
 
-
-
-// $idRecette = $obj->getIdRecette();
-// $recette = ProduitsrecettesManager::getByRecette($_GET["id"]);
-// var_dump($recette);
-// $idProduit = $obj->getIdProduit();
-// $produit = ProduitsManager::findById($idProduit);
-// $idTypeProduit = $produit->getIdTypeProduit();
-// $typeProduit = TypesproduitsManager::findById($idTypeProduit);
-// var_dump($typeProduit);
-
-
-
     echo '<div class="info colonne>
     <div class="titre centre"><h2>'.$recette->getLibelleRecette(). '</h2></div></div>';
 
-    // On récupère les id des types de produits pour les afficher
-    foreach($liste as $elt)
-    {
-        $idProduit= $elt->getIdProduit();
-        // var_dump($idProduit);
-        $produit = ProduitsManager::findById($idProduit);
-        // var_dump($produit);
-        $idTypeProduit = $produit->getIdTypeProduit();
-        
-        $typeProduit = TypesproduitsManager::findById($idTypeProduit);
-        
-    }
-
-    echo'<div class"double"><h3>'.$typeProduit->getLibelleTypeProduit().'</h3></div>
-    <div>';
-    
 
     //On récupère la liste des produits
     $listeProduits = ProduitsManager::getList();
@@ -84,15 +55,41 @@ $liste= ComporteproduitrecetteManager::getByRecette($_GET['idRecette']);
         // var_dump($listeProduits);
         $produitIdTypes[] = $produit->getIdTypeProduit();
     }
-    // echo'<div>';
-    // var_dump($listeId);
-    // var_dump($produitIdTypes);
-    // var_dump($idTypeProduit);
+    
+
+    // On récupère les id des types de produits pour les afficher
+    foreach($liste as $elt)
+    {
+        $idProduit= $elt->getIdProduit();
+        // var_dump($idProduit);
+        $produit = ProduitsManager::findById($idProduit);
+        // var_dump($produit);
+        $idTypeProduit = $produit->getIdTypeProduit();
+        
+        $typeProduit = TypesproduitsManager::findById($idTypeProduit);
+        
+        
+    }
+    $listeTypes = TypesproduitsManager::getList();
+    foreach($listeTypes as $type)
+    {
+        $idT = $type->getIdTypeProduit();
+        $libelleType = $type->getLibelleTypeProduit();
+        if($libelleType!="boisson" && $libelleType!="dessert")
+        {
+            echo'<div class"double"><h3>'.$libelleType.'</h3></div>
+            <div>';
+        }
+
+        $produitIdTypes =array_unique($produitIdTypes);
+
         foreach($produitIdTypes as $idType)
         {
-            // echo'<div class="colonne">';
+            
+            
             if($idType==$idTypeProduit)
             {
+                
                 echo'<div class="triple"></div>';
                 afficherCheckBox($listeId,"Produits","idProduit",$mode);
                 echo'<div class="triple"></div>';
@@ -100,17 +97,7 @@ $liste= ComporteproduitrecetteManager::getByRecette($_GET['idRecette']);
             
             echo'</div>';
         }
-    //  echo'</div>';
-
-
-
-
-
-
-
-
-
-
+    }
 
     // echo '<div class="espaceHor"></div>';
         
