@@ -20,7 +20,7 @@ echo '<section class="colonne">
     <div class="doubleHor"></div>';
     echo '<div class="info">
     <div class="case centre">
-    <div class="user">libelle</div>
+    <div class="recette">libelle</div>
     </div>
     <div class="triple centre"></div>    
     </div>
@@ -29,7 +29,7 @@ foreach ($recettes as $uneRecette) {
 
     echo '<div class="info colonne">
                 <div class="case grande centre">
-                <div class="user">' . $uneRecette->getLibelleRecette(). '</div>
+                <div class="recette">' . $uneRecette->getLibelleRecette(). '</div>
                 
                 <div class="triple centre">
                     <a href="index.php?page=FormRecette&mode=details&id=' . $uneRecette->getIdRecette() .'"><button class="bouton"><i class="fas fa-info-circle"></i> Détail</button></a>

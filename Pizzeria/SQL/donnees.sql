@@ -43,8 +43,8 @@ INSERT INTO comporteProduitRecette (idComporteProduitRecette, idProduit, idRecet
 
 INSERT INTO pizzas (idPizza, idRecette, idTaillePizza, prix) VALUES (NULL, 1, 1, 10);
 INSERT INTO pizzas (idPizza, idRecette, idTaillePizza, prix) VALUES (NULL, 1, 2, 12);
-INSERT INTO pizzas (idPizza, idRecette, idTaillePizza, prix) VALUES (NULL, 1, 2, 11);
-INSERT INTO pizzas (idPizza, idRecette, idTaillePizza, prix) VALUES (NULL, 1, 2, 13);
+INSERT INTO pizzas (idPizza, idRecette, idTaillePizza, prix) VALUES (NULL, 2, 2, 11);
+INSERT INTO pizzas (idPizza, idRecette, idTaillePizza, prix) VALUES (NULL, 3, 2, 13);
 
 INSERT INTO commandes (idCommande, idUser, dateCommande, nbPointFidelite, horaireLivraison) VALUES (NULL, 1, "2021-07-01", 10, "19:00:00");
 

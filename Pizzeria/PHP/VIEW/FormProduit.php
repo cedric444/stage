@@ -114,7 +114,7 @@ echo $idProduitHidden;
                     echo'<input type="text" name="image" hidden value="'.$unProduit->getImage().'">';
                     echo'<img id="image" alt="image du produit" src="IMG/'.$unProduit->getImage().'">';?>
                     <input type="hidden" name="MAX_FILE_SIZE" value="250000"/>
-                    <input type="file" id="image"  name="image" size=50 
+                    <input type="file" id="image"  name="image" size=50 <?=$disabled?>
                     value="/IMG/<?php if($mode!="ajouter") echo $unProduit->getImage();?>"/>
                 </div>
                 <div class="triple"></div>                       

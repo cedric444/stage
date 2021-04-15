@@ -97,6 +97,7 @@ $liste= ComporteproduitrecetteManager::getByRecette($_GET['idRecette']);
                 afficherCheckBox($listeId,"Produits","idProduit",$mode);
                 echo'<div class="triple"></div>';
             }
+            
             echo'</div>';
         }
     //  echo'</div>';

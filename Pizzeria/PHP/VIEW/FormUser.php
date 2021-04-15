@@ -2,7 +2,7 @@
 
     <?php
 $currentUser = new Users ($_SESSION);
-var_dump($currentUser);
+// var_dump($currentUser);
 $mode = $_GET['mode'];
 if (isset($_GET['id'])) {
     $id = $_GET['id'];

@@ -3,6 +3,7 @@
     <?php
 
 $mode = $_GET['mode'];
+$role = $_SESSION['user']->getIdRole();
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $uneRecette = RecettesManager::findById($id);
@@ -51,9 +52,14 @@ echo $idRecetteHidden;
                     <label for="libelleRecette">Libelle</label>
                     <input type="text" id="libelle" <?=$disabled;?> name="libelleRecette" value="<?=$uneRecette->getLibelleRecette();?>" required pattern="[a-zA-Z- ]{3,}">
                 </div>
-                <div class="info colonne ">
+                <?php
+                echo'<div class="info colonne ">
                     <label for="imagePizza">Photo</label>
-                    <input type="text" id="imagePizza" <?=$disabled;?> name="imagePizza" value="<?=$uneRecette->getImagePizza();?>" pattern="[a-zA-Z- ._]{3,}">
+                    <input type="text" name="imagePizza" hidden value="'.$uneRecette->getImagePizza().'">';
+                echo'<img id="imagePizza" alt="image de la pizza" src="IMG/'.$uneRecette->getImagePizza().'">';?>
+                    <input type="hidden" name="MAX_FILE_SIZE" value="250000"/>
+                    <input type="file" id="imagePizza"  name="imagePizza" size=50 <?=$disabled?>
+                    value="/IMG/'<?php if($mode!="ajouter") echo $uneRecette->getImagePizza();?>"/>
                 </div>
                 <div class="info colonne  grande">
                     <label for="prixRecette">prix</label>

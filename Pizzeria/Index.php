@@ -62,6 +62,8 @@ $routes=[
 	"InterfaceDonnees"=>["PHP/VIEW/", "InterfaceDonnees", "Interface de l'administrateur"],
 	"InterfaceUser"=>["PHP/VIEW/", "InterfaceUser", "Interface de l'utilisateur"],
 
+	"SelectionPizza"=>["PHP/VIEW/", "SelectionPizza", "page de sélection de pizza"],
+
 	// "TestallergenesManager"=>["PHP/MODEL/TESTMANAGER/","TestallergenesManager","Test de allergenes"],
 	// "TestallergenesproduitManager"=>["PHP/MODEL/TESTMANAGER/","TestallergenesproduitManager","Test de allergenesproduit"],
 	// "TestcommandepizzaManager"=>["PHP/MODEL/TESTMANAGER/","TestcommandepizzaManager","Test de commandepizza"],
