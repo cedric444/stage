@@ -92,3 +92,47 @@ for (let j = 0; j < listeSelect.length; j++) {
         checkAllValidity();
     });
 }
+
+/***********Gestion des images************/
+
+function clickModifImage(e) {
+    document.getElementById("image").hidden= true;
+    document.querySelector("button[type=button]").hidden= true;
+    input = document.getElementsByName("imagePizza")[0];
+    input.hidden = false;
+    input.type = "file";
+    modif = document.createElement("input");
+    modif.name= "modifImage";
+    modif.hidden = true;
+    input.addEventListener("change", choixImage);
+    input.parentNode.appendChild(modif);
+}
+
+function choixImage(e) {
+    image = e.target.value;
+    if(image.lenght>0)
+    {
+        imageType = /^image\//;
+        fichier = e.target.files[0];
+        if(!imageType.test(fichier.type))
+        {
+            alert("Sélectionnez une image");
+            e.target.value;
+        }
+        else
+        {
+            img = document.createElement("img");
+            img.id="imageP";
+            img.file = fichier;
+            e.target.parentNode.appendChild(img);
+            reader = new FileReader();
+            reader.addEventListener("load", chargerImage);
+            reader.readAsDataURL(img, file);
+        }
+
+    }
+}
+
+function chargerImage() {
+    document.getElementById("imageP").src = e.target.result;
+}

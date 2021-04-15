@@ -3,14 +3,14 @@
     <?php
 
 $mode = $_GET['mode'];
-$role = $_SESSION['user']->getIdRole();
+
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $uneRecette = RecettesManager::findById($id);
 } else {
     $uneRecette = new Recettes();
 }
-$formAction = '<form action="index.php?page=ActionRecette&mode='.$mode.'" method="POST">';
+$formAction = '<form action="index.php?page=ActionRecette&mode='.$mode.'" method="POST" enctype="multipart/form-data">';
 
 switch ($mode) {
     case "ajouter":
@@ -54,12 +54,22 @@ echo $idRecetteHidden;
                 </div>
                 <?php
                 echo'<div class="info colonne ">
-                    <label for="imagePizza">Photo</label>
-                    <input type="text" name="imagePizza" hidden value="'.$uneRecette->getImagePizza().'">';
-                echo'<img id="imagePizza" alt="image de la pizza" src="IMG/'.$uneRecette->getImagePizza().'">';?>
-                    <input type="hidden" name="MAX_FILE_SIZE" value="250000"/>
-                    <input type="file" id="imagePizza"  name="imagePizza" size=50 <?=$disabled?>
-                    value="/IMG/'<?php if($mode!="ajouter") echo $uneRecette->getImagePizza();?>"/>
+                    <label for="imagePizza">Photo</label>';
+                    if($mode=="ajouter")
+                    {
+                        echo'<input type="file" id"image'.$disabled.' name="imagePizza" required>';
+                    }
+                    else {
+
+                        echo'<input type="text" name="imagePizza" hidden value="'.$uneRecette->getImagePizza().'">';
+                        echo'<img id="image" alt="image de la pizza" src="IMG/'.$uneRecette->getImagePizza().'">';
+                        if($mode=="modifier")
+                        {
+                            echo'<button type="button" class="bouton"><i class="fas fa-edit"></i> &nbsp Modifier l\'image</button>';
+                        }
+                    }
+                    ?>
+
                 </div>
                 <div class="info colonne  grande">
                     <label for="prixRecette">prix</label>

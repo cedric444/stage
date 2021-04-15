@@ -7,8 +7,8 @@ INSERT INTO users(idUser, nomUser, prenomUser, adresse, codePostal, ville, mailU
 INSERT INTO users(idUser, nomUser, prenomUser, adresse, codePostal, ville, mailUser, telUser, motDePasse, nbPointFidelite, idRole) VALUES(2, "doe", "jane", "125 main", "59470", "esquelbecq", "johndoe@gmail.com", "0652545154", "Mot2Pass!", 3, 2);
 INSERT INTO users(idUser, nomUser, prenomUser, adresse, codePostal, ville, mailUser, telUser, motDePasse, nbPointFidelite, idRole) VALUES(3, "doex", "john", "100 main", "59470", "esquelbecq", "johndoex@gmail.com", "0652545150", "Password2!", 0, 1);
 
-INSERT INTO typesProduits (idTypeProduit, libelleTypeProduit) VALUES (NULL, "legumes");
 INSERT INTO typesProduits (idTypeProduit, libelleTypeProduit) VALUES (NULL, "base");
+INSERT INTO typesProduits (idTypeProduit, libelleTypeProduit) VALUES (NULL, "legumes");
 INSERT INTO typesProduits (idTypeProduit, libelleTypeProduit) VALUES (NULL, "fromage");
 INSERT INTO typesProduits (idTypeProduit, libelleTypeProduit) VALUES (NULL, "viande");
 INSERT INTO typesProduits (idTypeProduit, libelleTypeProduit) VALUES (NULL, "boisson");
