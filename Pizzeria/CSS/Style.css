@@ -11,7 +11,7 @@ div, header, footer, nav, section, form {
 }
 
 body {
-    background-color: seashell;
+    background-color: #8f1d1d;
 }
 img, video {
 	width : 100%;
@@ -33,7 +33,7 @@ img, video {
 
 .espaceHor {
     flex: none;
-    height: 1em;
+    height: 2em;
 }
 .doubleHor {
     flex: none;
@@ -71,8 +71,8 @@ section {
 
 .bouton {
     border: 2px solid black;
-    background-color: #FAC021;
-    color: #215BFA;
+    background-color: #edf7d2;
+    color: #7d7c7a;
     font-size: 1em;
     font-weight: bold;
     padding: 0.2em;

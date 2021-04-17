@@ -34,11 +34,15 @@ foreach($listeBoissons as $boisson)
     
     <div class="triple centre">'.$boisson->getLibelleProduit().'</div>
     <div class="mini"></div>
-    <div class="triple centre">'.$boisson->getPrixProduit().'</div><div class="double"></div></div>';
+    <div class="triple centre">'.$boisson->getPrixProduit().'</div><div class="double"></div>
+    <div class="quantite"><label for="quantite"></label><input type="number" id="quantity" name="quantite" min="0"></div>
+    <div class="double"></div></div>';
 }
 
 ?>
 
 <div class="espaceHor"></div>
-<div><a href="index.php?page=Menu"><button class="bouton"><i class="far fa-arrow-alt-circle-left"></i> &nbsp Retour</button></a></div>
+<div><a href="index.php?page=Panier"><button class="bouton"><i class="fas fa-paper-plane"></i> &nbsp Ajouter au panier</button></a>
+<div class="mini"></div>
+<a href="index.php?page=Menu"><button class="bouton"><i class="far fa-arrow-alt-circle-left"></i> &nbsp Retour</button></a></div>
 </div>

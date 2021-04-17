@@ -16,9 +16,17 @@ switch ($mode) {
             if(isset($_POST["modifImage"]))
             {   /*suppression de l'ancienne image*/
                 $ancienneValeur= RecettesManager::findById($recette->getImagePizza());
-                unlink("IMG/".$ancienneValeur->getImagePizza());
-                /*Chargement de la nouvelle image*/
-                $recette->setImagePizza(chargerImage());
+                if($ancienneValeur)
+                {
+                    unlink("IMG/".$ancienneValeur->getImagePizza());
+                    /*Chargement de la nouvelle image*/
+                    $recette->setImagePizza(chargerImage());
+                }
+                else
+                {
+                    $recette->setImagePizza(chargerImage());
+                    var_dump($recette->setImagePizza(chargerImage()));
+                }
             }
             RecettesManager::update($recette);
             break;
@@ -36,9 +44,9 @@ function chargerImage()
 {
     if(is_uploaded_file($_FILES["imagePizza"]["tmp_name"]))
     {
-        $lenom = uniqid('jpg_') . '.jpg';
-        move_uploaded_file($_FILES["ImagePizza"]["tmp_name"], 'IMG/'.$lenom);
+        $leNom = uniqid('jpg_') . '.jpg';
+        move_uploaded_file($_FILES['imagePizza']['tmp_name'], 'IMG/'.$leNom);
     }
-    return $lenom;
+    return $leNom;
 }
 // header("location:index.php?page=ListeRecettes");

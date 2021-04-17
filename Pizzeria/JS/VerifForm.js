@@ -122,7 +122,7 @@ function choixImage(e) {
         else
         {
             img = document.createElement("img");
-            img.id="imageP";
+            img.id="image";
             img.file = fichier;
             e.target.parentNode.appendChild(img);
             reader = new FileReader();
@@ -134,5 +134,19 @@ function choixImage(e) {
 }
 
 function chargerImage() {
-    document.getElementById("imageP").src = e.target.result;
+    document.getElementById("image").src = e.target.result;
+}
+
+url =window.location.search;
+if(url.indexOf("Recette")>0)
+{
+    recette = document.getElementsByName("idRecette")[0];
+    if(url.indexOf("ajout")>0)
+    {
+        document.querySelector("input[type=file]").addEventListener("change", choixImage);
+    }
+    else if(url.indexOf("modif")>0)
+    {
+        document.querySelector("button[type=button]").addEventListener("click", clickModifImage);
+    }
 }
