@@ -20,52 +20,52 @@ $lang=isset($_SESSION['lang']) ? $_SESSION['lang'] : 'FR';
 /******Fin des langues******/
 
 $routes=[
-	"default"=>["PHP/VIEW/","Accueil","Accueil"],
-	"Menu"=>["PHP/VIEW/", "Menu", "Menu"],
+	"default"=>["PHP/VIEW/","Accueil","Accueil",false],
+	"Menu"=>["PHP/VIEW/", "Menu", "Menu",false],
 
-	"FormConnexion"=>["PHP/VIEW/", "FormConnexion", "Formulaire  de connexion"],
-	"ActionConnexion"=>["PHP/VIEW/", "ActionConnexion", "Action sur la connexion"],
+	"FormConnexion"=>["PHP/VIEW/", "FormConnexion", "Formulaire  de connexion",false],
+	"ActionConnexion"=>["PHP/VIEW/", "ActionConnexion", "Action sur la connexion",false],
 
-	"ListeUsers"=>["PHP/VIEW/", "ListeUsers", "Liste des utilisateurs"],
-	"FormUser"=>["PHP/VIEW/", "FormUser", "formulaire utilisateur"],
-	"ActionUser"=>["PHP/VIEW/", "ActionUser", "Action sur les utilisateurs"],
+	"ListeUsers"=>["PHP/VIEW/", "ListeUsers", "Liste des utilisateurs",false],
+	"FormUser"=>["PHP/VIEW/", "FormUser", "formulaire utilisateur",false],
+	"ActionUser"=>["PHP/VIEW/", "ActionUser", "Action sur les utilisateurs",false],
 
-	"ListeRoles"=>["PHP/VIEW/", "ListeRoles", "Liste des rôles"],
-	"FormRole"=>["PHP/VIEW/", "FormRole", "Formulaire des rôles"],
-	"ActionRole"=>["PHP/VIEW/", "ActionRole", "Action sur les rôles"],
+	"ListeRoles"=>["PHP/VIEW/", "ListeRoles", "Liste des rôles",false],
+	"FormRole"=>["PHP/VIEW/", "FormRole", "Formulaire des rôles",false],
+	"ActionRole"=>["PHP/VIEW/", "ActionRole", "Action sur les rôles",false],
 
-	"ListeTypesproduits"=>["PHP/VIEW/", "ListeTypesproduits", "Liste des types de produits"],
-	"FormTypeproduit"=>["PHP/VIEW/", "FormTypeproduit", "Formulaire de types de produits"],
-	"ActionTypeproduit"=>["PHP/VIEW/", "ActionTypeproduit", "Action sur les types de produits"],
+	"ListeTypesproduits"=>["PHP/VIEW/", "ListeTypesproduits", "Liste des types de produits",false],
+	"FormTypeproduit"=>["PHP/VIEW/", "FormTypeproduit", "Formulaire de types de produits",false],
+	"ActionTypeproduit"=>["PHP/VIEW/", "ActionTypeproduit", "Action sur les types de produits",false],
 
-	"ListeAllergenes"=>["PHP/VIEW/", "ListeAllergenes", "Liste des allergenes"],
-	"FormAllergene"=>["PHP/VIEW/", "FormAllergene", "Formulaire des allergenes"],
-	"ActionAllergene"=>["PHP/VIEW/", "ActionAllergene", "Action sur les allergenes"],
+	"ListeAllergenes"=>["PHP/VIEW/", "ListeAllergenes", "Liste des allergenes",false],
+	"FormAllergene"=>["PHP/VIEW/", "FormAllergene", "Formulaire des allergenes",false],
+	"ActionAllergene"=>["PHP/VIEW/", "ActionAllergene", "Action sur les allergenes",false],
 
-	"ListeProduits"=>["PHP/VIEW/", "ListeProduits", "Liste des produits"],
-	"FormProduit"=>["PHP/VIEW/", "FormProduit", "Formulaire des produits"],
-	"ActionProduit"=>["PHP/VIEW/", "ActionProduit", "Action sur les produits"],
+	"ListeProduits"=>["PHP/VIEW/", "ListeProduits", "Liste des produits",false],
+	"FormProduit"=>["PHP/VIEW/", "FormProduit", "Formulaire des produits",false],
+	"ActionProduit"=>["PHP/VIEW/", "ActionProduit", "Action sur les produits",false],
 
-	"ListeRecettes"=>["PHP/VIEW/", "ListeRecettes", "Liste des recettes"],
-	"FormRecette"=>["PHP/VIEW/", "FormRecette", "Formulaire des recettes"],
-	"ActionRecette"=>["PHP/VIEW/", "ActionRecette", "Action sur les recettes"],
+	"ListeRecettes"=>["PHP/VIEW/", "ListeRecettes", "Liste des recettes",false],
+	"FormRecette"=>["PHP/VIEW/", "FormRecette", "Formulaire des recettes",false],
+	"ActionRecette"=>["PHP/VIEW/", "ActionRecette", "Action sur les recettes",false],
 
-	"FormComporteProduitRecette"=>["PHP/VIEW/", "FormComporteProduitRecette", "Fomulaire sur la modification des recettes"],
+	"FormComporteProduitRecette"=>["PHP/VIEW/", "FormComporteProduitRecette", "Fomulaire sur la modification des recettes",false],
 
-	"ListeTaillespizzas"=>["PHP/VIEW/", "ListeTaillespizzas", "Liste des tailles de pizza"],
-	"FormTaillepizza"=>["PHP/VIEW/", "FormTaillepizza", "Formulaire des tailles de pizza"],
-	"ActionTaillepizza"=>["PHP/VIEW/", "ActionTaillepizza", "Action sur les tailles de pizza"],
+	"ListeTaillespizzas"=>["PHP/VIEW/", "ListeTaillespizzas", "Liste des tailles de pizza",false],
+	"FormTaillepizza"=>["PHP/VIEW/", "FormTaillepizza", "Formulaire des tailles de pizza",false],
+	"ActionTaillepizza"=>["PHP/VIEW/", "ActionTaillepizza", "Action sur les tailles de pizza",false],
 
-	"ListeCommandes"=>["PHP/VIEW/", "ListeCommandes", "Listes des commandes"],
-	"FormCommande"=>["PHP/VIEW/", "FormCommande", "Formulaire des commandes"],
-	"ActionCommande"=>["PHP/VIEW/", "ActionCommande", "Action sur la commande"],
+	"ListeCommandes"=>["PHP/VIEW/", "ListeCommandes", "Listes des commandes",false],
+	"FormCommande"=>["PHP/VIEW/", "FormCommande", "Formulaire des commandes",false],
+	"ActionCommande"=>["PHP/VIEW/", "ActionCommande", "Action sur la commande",false],
 
-	"InterfaceDonnees"=>["PHP/VIEW/", "InterfaceDonnees", "Interface de l'administrateur"],
-	"InterfaceUser"=>["PHP/VIEW/", "InterfaceUser", "Interface de l'utilisateur"],
+	"InterfaceDonnees"=>["PHP/VIEW/", "InterfaceDonnees", "Interface de l'administrateur",false],
+	"InterfaceUser"=>["PHP/VIEW/", "InterfaceUser", "Interface de l'utilisateur",false],
 
-	"SelectionPizzas"=>["PHP/VIEW/", "SelectionPizzas", "page de sélection des pizzas"],
-	"SelectionBoissons"=>["PHP/VIEW/", "SelectionBoissons", "page de selection des boissons"],
-	"SelectionDesserts"=>["PHP/VIEW/", "SelectionDesserts", "page de selection des desserts"],
+	"SelectionPizzas"=>["PHP/VIEW/", "SelectionPizzas", "page de sélection des pizzas",false],
+	"SelectionBoissons"=>["PHP/VIEW/", "SelectionBoissons", "page de selection des boissons",false],
+	"SelectionDesserts"=>["PHP/VIEW/", "SelectionDesserts", "page de selection des desserts",false],
 
 	// "TestallergenesManager"=>["PHP/MODEL/TESTMANAGER/","TestallergenesManager","Test de allergenes"],
 	// "TestallergenesproduitManager"=>["PHP/MODEL/TESTMANAGER/","TestallergenesproduitManager","Test de allergenesproduit"],

@@ -22,21 +22,21 @@ switch ($mode) {
         }
     case "modifier":
         {
-            $idRecetteHidden = '<input name= "idUser" value="' . $uneRecette->getIdRecette() . '" type= "hidden">';
+            $idRecetteHidden = '<input name= "idRecette" value="' . $uneRecette->getIdRecette() . '" type= "hidden">';
             $disabled = '';
             $submit = '<button class="bouton"><i class="fas fa-edit"></i> &nbsp Modifier</button><div class="mini"></div>';
             break;
         }
     case "details":
         {
-            $idRecetteHidden = '<input name= "idUser" value="' . $uneRecette->getIdRecette() . '" type= "hidden">';
+            $idRecetteHidden = '<input name= "idRecette" value="' . $uneRecette->getIdRecette() . '" type= "hidden">';
             $disabled = 'disabled';
             $submit = "";
             break;
         }
     case "supprimer":
         {
-            $idRecetteHidden = '<input name= "idUser" value="' . $uneRecette->getIdRecette() . '" type= "hidden">';
+            $idRecetteHidden = '<input name= "idRecette" value="' . $uneRecette->getIdRecette() . '" type= "hidden">';
             $disabled = 'disabled';
             $submit = '<button class="bouton"><i class="fas fa-trash-alt"></i>&nbsp Supprimer</button><div class="mini"></div>';
             break;

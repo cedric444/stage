@@ -17,7 +17,10 @@ if (isset($page)) {
     }
 }
 
-
+switch ($page[1]) {
+    case "Menu":echo '<script src="./JS/VerifMenu.js"></script>';
+            break;
+}
 ?>
 </body>
 </html>

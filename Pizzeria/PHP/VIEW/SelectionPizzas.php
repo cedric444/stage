@@ -22,7 +22,7 @@ foreach($idRecette as $uneIdRecette)
     echo'<div class="colonne"><div class="titre centre"><h2>'.$recette->getLibelleRecette(). '</h2></div>
          <div class="espaceHor"></div>
          <div class="image centre">
-         <img src="IMG/'.$recette->getImagePizza().'" alt="'.$recette->getLibelleRecette().'"></div></div>';
+         <img id="pizza" src="IMG/'.$recette->getImagePizza().'" alt="'.$recette->getLibelleRecette().'"></div></div>';
 
 }
 

@@ -77,7 +77,7 @@ $liste= ComporteproduitrecetteManager::getByRecette($_GET['idRecette']);
         $libelleType = $type->getLibelleTypeProduit();
         if($libelleType!="boisson" && $libelleType!="dessert")
         {
-            echo'<div class"double"><h3>'.$libelleType.'</h3></div>
+            echo'<div class"double" id="libelleProduit"><h3>'.$libelleType.'</h3></div>
             <div>';
         }
 

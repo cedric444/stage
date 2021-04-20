@@ -1,12 +1,13 @@
 <?php
-
 $mode = $_GET['mode'];
 $recette = new Recettes($_POST);
-var_dump($recette);
+$recette->setImagePizza($_FILES['imagePizza']['name']);
+// var_dump($_FILES);
 switch ($mode) {
     case "ajouter":
         {
-            $obj->setImagePizza(chargerImage());
+            $recette->setImagePizza(chargerImage());
+            var_dump($recette->setImagePizza(chargerImage()));
             RecettesManager::add($recette);
             break;
         }
@@ -25,7 +26,7 @@ switch ($mode) {
                 else
                 {
                     $recette->setImagePizza(chargerImage());
-                    var_dump($recette->setImagePizza(chargerImage()));
+                    // var_dump($recette->setImagePizza(chargerImage()));
                 }
             }
             RecettesManager::update($recette);
@@ -42,11 +43,13 @@ switch ($mode) {
 
 function chargerImage()
 {
-    if(is_uploaded_file($_FILES["imagePizza"]["tmp_name"]))
+    if(is_uploaded_file($_FILES['imagePizza']['tmp_name']))
     {
         $leNom = uniqid('jpg_') . '.jpg';
-        move_uploaded_file($_FILES['imagePizza']['tmp_name'], 'IMG/'.$leNom);
+        // var_dump($leNom);
+        move_uploaded_file($_FILES['imagePizza']['tmp_name'], 'IMG/' .$leNom);
     }
     return $leNom;
+    
 }
 // header("location:index.php?page=ListeRecettes");

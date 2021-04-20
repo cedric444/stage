@@ -10,9 +10,10 @@ if (isset($_GET['id'])) {
     $unProduit = new Produits();
 }
 
-$formAction = '<form action="index.php?page=ActionProduit&mode='.$mode.'" method="POST" >';
+$formAction = '<form action="index.php?page=ActionProduit&mode='.$mode.'" method="POST" enctype="multipart/form-data">';
 $idTypeProduit= $unProduit->getIdTypeProduit();
-$typeProduit = TypesproduitsManager::findById($idTypeProduit);
+// var_dump($idTypeProduit);
+$liste = TypesproduitsManager::getList();
 
 
 switch ($mode) {
@@ -83,10 +84,25 @@ echo $idProduitHidden;
                 <div class="triple"></div>
                 <div class="info colonne">
                     <label for="typeProduit">Type produit</label>
-                    <input type="text" id="typeProduit"<?=$disabled;?> name="typeProduit" pattern="^[a-zA-Z ]{3,}"
-                    value="<?php if($mode!="ajouter") echo $typeProduit->getLibelleTypeProduit();?>"/>
-                    <label for="idTypeProduit"></label>
-                    <input type="hidden" id="idTypeProduit" name="idTypeProduit" value="<?php echo $unProduit->getIdTypeProduit()?>"/>
+                    <select>
+                        <?php
+                        $sel="";
+                        foreach($liste as $elt)
+                        {
+                            if($elt->getIdTypeProduit()== $idTypeProduit)
+                                
+                            {
+                                $sel="selected";
+                            }   
+                            else
+                            {
+                                $sel="";
+                            }
+                                                   
+                            echo'<option ' .$sel.' name="typeProduit" value="'. $elt->getIdTypeProduit().'">'. $elt->getLibelleTypeProduit().'</option>'; 
+                        }
+                        ?>
+                    </select>
                 </div>
                 <div class="triple"></div>                       
             </div>
@@ -96,26 +112,21 @@ echo $idProduitHidden;
                 <div class="info colonne">
                     <label for="image">Image</label>
                     <?php
-                    // if($mode=="ajouter")
-                    // {
-                    //     echo'<input type="file" id="image" '.$disabled.' name="image">';
-                    // }
-                    // else
-                    // {
+                    if($mode=="ajouter")
+                    {
+                        echo'<input type="file" id="image" '.$disabled.' name="image" required>';
+                    }
+                    else
+                    {
                         
-                    //     echo'<input type="text" name="image" hidden value="'.$unProduit->getImage().'">';
-                    //     echo'<img id="image" alt="image du produit" src="IMG/'.$unProduit->getImage().'">';
-                    //     if($mode=="modifier")
-                    //     {
-                    //     echo'<button type="button" class="bouton"><i class="fas fa-edit"></i> &nbsp Modifier l\'image</button>';
-                    //     }
-                    // }
-                    
-                    echo'<input type="text" name="image" hidden value="'.$unProduit->getImage().'">';
-                    echo'<img id="image" alt="image du produit" src="IMG/'.$unProduit->getImage().'">';?>
-                    <input type="hidden" name="MAX_FILE_SIZE" value="250000"/>
-                    <input type="file" id="image"  name="image" size=50 <?=$disabled?>
-                    value="/IMG/<?php if($mode!="ajouter") echo $unProduit->getImage();?>"/>
+                        echo'<input type="text" name="image" hidden value="'.$unProduit->getImage().'">';
+                        echo'<img id="image" alt="image du produit" src="IMG/'.$unProduit->getImage().'">';
+                        if($mode=="modifier")
+                        {
+                        echo'<button type="button" class="bouton"><i class="fas fa-edit"></i> &nbsp Modifier l\'image</button>';
+                        }
+                    }
+                ?>  
                 </div>
                 <div class="triple"></div>                       
             </div>
@@ -123,7 +134,7 @@ echo $idProduitHidden;
             <?php
             
             echo $submit;
-            echo '<a href="index.php?page=ListeProduits"><button class="bouton"><i class="far fa-arrow-alt-circle-left"></i>&nbsp Retour</button></a>';
+            echo '<a href="index.php?page=ListeProduits"><button type="button" class="bouton"><i class="far fa-arrow-alt-circle-left"></i>&nbsp Retour</button></a>';
             
             ?>
             </div>

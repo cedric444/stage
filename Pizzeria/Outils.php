@@ -92,4 +92,3 @@ function afficherCheckBox($listeId, $table, $input, $mode){
 		<div class="mini"></div>';
 	}
 }
-

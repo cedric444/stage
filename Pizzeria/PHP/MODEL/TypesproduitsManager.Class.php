@@ -59,12 +59,26 @@ class TypesproduitsManager
 	   	$results = $q->fetch(PDO::FETCH_ASSOC);
 	   	if($results != false)
 	   	{
-		   	return new Produits($results);
+		   	return new Typesproduits($results);
 	   	}
 	   	else
 	   	{
 		   	return false;
 	   	}
 	   
+	}
+	public static function getByLibelle($obj)
+	{
+		$db=DbConnect::getDb();
+		$q=$db->query('SELECT * FROM typeproduits WHERE libelleProduit ="'.$obj.'"');
+		$results= $q->fetch(PDO::FETCH_ASSOC);
+		if($results != false)
+		{
+			return new Typesproduits($results);
+		}
+		else
+		{
+			return false;
+		}
 	}
 }

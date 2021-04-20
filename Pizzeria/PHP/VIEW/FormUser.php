@@ -106,7 +106,7 @@ echo $idUserHidden;
             <?php
             
             echo $submit;
-            echo '<a href="index.php?page=ListeUsers"><div class="bouton"><i class="far fa-arrow-alt-circle-left"></i>&nbsp Retour</div></a>';
+            echo '<a href="index.php?page=ListeUsers"><button type="button" class="bouton"><i class="far fa-arrow-alt-circle-left"></i>&nbsp Retour</button></a>';
             
             ?>
             </div>

@@ -42,7 +42,7 @@ foreach($listeBoissons as $boisson)
 ?>
 
 <div class="espaceHor"></div>
-<div><a href="index.php?page=Panier"><button class="bouton"><i class="fas fa-paper-plane"></i> &nbsp Ajouter au panier</button></a>
+<div><button class="bouton"><i class="fas fa-paper-plane"></i> &nbsp Ajouter au panier</button>
 <div class="mini"></div>
 <a href="index.php?page=Menu"><button class="bouton"><i class="far fa-arrow-alt-circle-left"></i> &nbsp Retour</button></a></div>
 </div>

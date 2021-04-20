@@ -1,3 +1,6 @@
+var parametres = new URLSearchParams(window.location.search);
+var nomPage = parametres.get('FormProduit');
+
 /**
  * Vérifie la validité de la saisie dans un input et change le style en conséquence
  * @param {élément de type input} input 
@@ -98,7 +101,16 @@ for (let j = 0; j < listeSelect.length; j++) {
 function clickModifImage(e) {
     document.getElementById("image").hidden= true;
     document.querySelector("button[type=button]").hidden= true;
-    input = document.getElementsByName("imagePizza")[0];
+    url = window.location.search;
+    if(url.indexOf("Produit")>0)
+    {    
+        console.log(nomPage);
+        input = document.getElementsByName("image")[0];
+    }
+    else
+    {
+        input = document.getElementsByName("imagePizza")[0];
+    }
     input.hidden = false;
     input.type = "file";
     modif = document.createElement("input");
@@ -123,6 +135,7 @@ function choixImage(e) {
         {
             img = document.createElement("img");
             img.id="image";
+            console.log(img.id);
             img.file = fichier;
             e.target.parentNode.appendChild(img);
             reader = new FileReader();
@@ -144,6 +157,20 @@ if(url.indexOf("Recette")>0)
     if(url.indexOf("ajout")>0)
     {
         document.querySelector("input[type=file]").addEventListener("change", choixImage);
+    }
+    else if(url.indexOf("modif")>0)
+    {
+        document.querySelector("button[type=button]").addEventListener("click", clickModifImage);
+    }
+}
+
+url = window.location.search;
+if(url.indexOf("Produit")>0)
+{
+    produit = document.getElementsByName("idProduit")[0];
+    if(url.indexOf("ajout")>0)
+    {
+        document.querySelector("input[type=file]").addEventListener("change",choixImage);
     }
     else if(url.indexOf("modif")>0)
     {

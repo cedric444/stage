@@ -32,17 +32,17 @@ foreach($listeDesserts as $dessert)
     echo'<div class="info">
     <div class="double"></div><div><img src="IMG/'.$dessert->getImage().'" alt="'.$dessert->getLibelleProduit().'"></div>
     
-    <div class="triple centre">'.$dessert->getLibelleProduit().'</div>
+    <div class="double centre">'.$dessert->getLibelleProduit().'</div>
     <div class="mini"></div>
-    <div class="triple centre">'.$dessert->getPrixProduit().'</div><div class="mini"></div>
+    <div class="double centre">'.$dessert->getPrixProduit().'</div><div class="mini"></div>
     <div class="quantite"><label for="quantite"></label><input type="number" id="quantity" name="quantite" min="0"></div>
-    <div class="double"></div></div>';
+    <div></div></div>';
     
 }
 ?>
 
 <div class="espaceHor"></div>
-<div><a href="index.php?page=Panier"><button class="bouton"><i class="fas fa-paper-plane"></i> &nbsp Ajouter au panier</button></a>
+<div><button class="bouton"><i class="fas fa-paper-plane"></i> &nbsp Ajouter au panier</button>
 <div class="mini"></div>
 <a href="index.php?page=Menu"><button class="bouton"><i class="far fa-arrow-alt-circle-left"></i> &nbsp Retour</button></a></div>
 </div>

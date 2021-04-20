@@ -1,6 +1,6 @@
 <header>
     <div class="logo"></div>
-    <div class="titre texteclair centre"><h1>O'SPEED PIZZA</div>
+    <div class="titre texteclair centre"><h1>O'SPEED PIZZA</h1></div>
     <div class="connexion centre">
         <?php
         if (isset($_SESSION['user'])) {
