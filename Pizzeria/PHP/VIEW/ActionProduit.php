@@ -4,8 +4,6 @@ $mode = $_GET['mode'];
 
 $produit = new Produits($_POST);
 $produit->setImage($_FILES['image']['name']);
-var_dump($produit);
-var_dump($_POST);
 switch ($mode) {
     case "ajouter":
         {
@@ -14,7 +12,7 @@ switch ($mode) {
                 $produit->setPrixProduit(null);
                 $produit->setQuantite(null);
             }
-            // var_dump($produit);
+            
             $produit->setImage(chargerImage());
             ProduitsManager::add($produit);
             
@@ -27,7 +25,7 @@ switch ($mode) {
                 $produit->setPrixProduit(null);
                 $produit->setQuantite(null);
             }
-            // var_dump($produit);
+            
             /*si l'image a été modifiée*/
             if(isset($_POST["modifImage"]))
             {   /*suppression de l'ancienne image*/
@@ -41,7 +39,6 @@ switch ($mode) {
                 else
                 {
                     $produit->setImage(chargerImage());
-                    // var_dump($produit->setImage(chargerImage()));
                 }
             }
             
@@ -58,7 +55,6 @@ switch ($mode) {
     //     }
 
 }
-// header("location:index.php?page=ListeProduits");
 
 function chargerImage(){
     if(is_uploaded_file($_FILES['image']['tmp_name']))
@@ -72,3 +68,5 @@ function chargerImage(){
         
    
 }
+
+header("location:index.php?page=ListeProduits");

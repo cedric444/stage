@@ -83,23 +83,22 @@ echo $idProduitHidden;
             <div>
                 <div class="triple"></div>
                 <div class="info colonne">
-                    <label for="typeProduit">Type produit</label>
-                    <select>
+                    <label for="idTypeProduit">Type produit</label>
+                    <select name="idTypeProduit">
                         <?php
                         $sel="";
                         foreach($liste as $elt)
                         {
-                            if($elt->getIdTypeProduit()== $idTypeProduit)
-                                
+                            
+                            if($elt->getIdTypeProduit()=== $idTypeProduit)    
                             {
                                 $sel="selected";
                             }   
                             else
                             {
                                 $sel="";
-                            }
-                                                   
-                            echo'<option ' .$sel.' name="typeProduit" value="'. $elt->getIdTypeProduit().'">'. $elt->getLibelleTypeProduit().'</option>'; 
+                            }                       
+                            echo'<option ' .$sel.' id="idTypeProduit" name="idTypeProduit" value="'. $elt->getIdTypeProduit().'">'. $elt->getLibelleTypeProduit().'</option>';
                         }
                         ?>
                     </select>
