@@ -1,5 +1,5 @@
-var parametres = new URLSearchParams(window.location.search);
-var nomPage = parametres.get('FormProduit');
+// var parametres = new URLSearchParams(window.location.search);
+// var nomPage = parametres.get('FormProduit');
 
 /**
  * Vérifie la validité de la saisie dans un input et change le style en conséquence
@@ -104,7 +104,6 @@ function clickModifImage(e) {
     url = window.location.search;
     if(url.indexOf("Produit")>0)
     {    
-        console.log(nomPage);
         input = document.getElementsByName("image")[0];
     }
     else

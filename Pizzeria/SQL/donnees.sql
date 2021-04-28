@@ -14,14 +14,18 @@ INSERT INTO typesProduits (idTypeProduit, libelleTypeProduit) VALUES (NULL, "via
 INSERT INTO typesProduits (idTypeProduit, libelleTypeProduit) VALUES (NULL, "boisson");
 INSERT INTO typesProduits (idTypeProduit, libelleTypeProduit) VALUES (NULL, "dessert");
 
-INSERT INTO produits (idProduit, libelleProduit, idTypeProduit) VALUES (NULL, "sauce tomate", 2);
-INSERT INTO produits (idProduit, libelleProduit, idTypeProduit) VALUES (NULL, "creme fraiche", 2);
+INSERT INTO produits (idProduit, libelleProduit, idTypeProduit,image) VALUES (NULL, "sauce tomate", 1,"SauceTomate");
+INSERT INTO produits (idProduit, libelleProduit, idTypeProduit,image) VALUES (NULL, "creme fraiche", 1,'creme-fraiche');
 INSERT INTO produits (idProduit, libelleProduit, idTypeProduit) VALUES (NULL, "boeuf", 4);
 INSERT INTO produits (idProduit, libelleProduit, idTypeProduit, prixProduit, quantite) VALUES (NULL, "biere", 5, 3, 15);
-INSERT INTO produits (idProduit, libelleProduit, idTypeProduit) VALUES (NULL, "jambon", 2);
+INSERT INTO produits (idProduit, libelleProduit, idTypeProduit,image) VALUES (NULL, "jambon", 4,'jambonCru');
 INSERT INTO produits (idProduit, libelleProduit, idTypeProduit, prixProduit, quantite) VALUES (NULL, "mousse chocolat", 6, 4, 12);
-INSERT INTO produits (idProduit, libelleProduit, idTypeProduit) VALUES (NULL, "champignons", 1);
-INSERT INTO produits (idProduit, libelleProduit, idTypeProduit) VALUES (NULL, "fromage", 3);
+INSERT INTO produits (idProduit, libelleProduit, idTypeProduit) VALUES (NULL, "champignons", 2);
+INSERT INTO produits (idProduit, libelleProduit, idTypeProduit) VALUES (NULL, "poivrons", 2);
+INSERT INTO produits (idProduit, libelleProduit, idTypeProduit) VALUES (NULL, "parmesan", 3);
+INSERT INTO produits (idProduit, libelleProduit, idTypeProduit) VALUES (NULL, "gruyere", 3);
+INSERT INTO produits (idProduit, libelleProduit, idTypeProduit) VALUES (NULL, "calamar", 3);
+INSERT INTO produits (idProduit, libelleProduit, idTypeProduit) VALUES (NULL, "moules", 3);
 
 
 
@@ -29,7 +33,7 @@ INSERT INTO allergenes (idAllergene, libelleAllergene) VALUES (NULL, "arachide")
 
 INSERT INTO recettes (idRecette, libelleRecette, prixRecette) VALUES (NULL, "reine", 10);
 INSERT INTO recettes (idRecette, libelleRecette, prixRecette) VALUES (NULL, "bolo", 11);
-INSERT INTO recettes (idRecette, libelleRecette, prixRecette, dateDebut, dateFin) VALUES (NULL, "printanière", 11, "2021-04-21", "2021-05-21");
+INSERT INTO recettes (idRecette, libelleRecette, prixRecette, dateDebut, dateFin) VALUES (NULL, "poissoniere", 11, "2021-04-21", "2021-05-21");
 
 INSERT INTO taillesPizzas (idTaillePizza, libelleTaillePizza, tarifSupplement) VALUES (NULL, 25, 0.80);
 INSERT INTO taillesPizzas (idTaillePizza, libelleTaillePizza, tarifSupplement) VALUES (NULL, 28, 1);
@@ -37,16 +41,19 @@ INSERT INTO taillesPizzas (idTaillePizza, libelleTaillePizza, tarifSupplement) V
 INSERT INTO compositions (idComposition, idProduit, idAllergene) VALUES (NULL, 1, 1);
 
 INSERT INTO comporteProduitRecette (idComporteProduitRecette, idProduit, idRecette) VALUES (NULL, 1, 1);
+INSERT INTO comporteProduitRecette (idComporteProduitRecette, idProduit, idRecette) VALUES (NULL, 5, 1);
+INSERT INTO comporteProduitRecette (idComporteProduitRecette, idProduit, idRecette) VALUES (NULL, 10, 1);
 INSERT INTO comporteProduitRecette (idComporteProduitRecette, idProduit, idRecette) VALUES (NULL, 1, 2);
-INSERT INTO comporteProduitRecette (idComporteProduitRecette, idProduit, idRecette) VALUES (NULL, 2, 1);
-INSERT INTO comporteProduitRecette (idComporteProduitRecette, idProduit, idRecette) VALUES (NULL, 2, 2);
+INSERT INTO comporteProduitRecette (idComporteProduitRecette, idProduit, idRecette) VALUES (NULL, 4, 2);
+INSERT INTO comporteProduitRecette (idComporteProduitRecette, idProduit, idRecette) VALUES (NULL, 2, 3);
+INSERT INTO comporteProduitRecette (idComporteProduitRecette, idProduit, idRecette) VALUES (NULL, 3, 2);
 
 INSERT INTO pizzas (idPizza, idRecette, idTaillePizza, prix) VALUES (NULL, 1, 1, 10);
 INSERT INTO pizzas (idPizza, idRecette, idTaillePizza, prix) VALUES (NULL, 1, 2, 12);
 INSERT INTO pizzas (idPizza, idRecette, idTaillePizza, prix) VALUES (NULL, 2, 2, 11);
 INSERT INTO pizzas (idPizza, idRecette, idTaillePizza, prix) VALUES (NULL, 3, 2, 13);
 
-INSERT INTO commandes (idCommande, idUser, dateCommande, nbPointFidelite, horaireLivraison) VALUES (NULL, 1, "2021-07-01", 10, "19:00:00");
+INSERT INTO commandes (idCommande,numCommande, idUser, dateCommande, nbPointFidelite, horaireLivraison) VALUES (NULL,1, 1, "2021-07-01", 10, "19:00:00");
 
 INSERT INTO lignesDeCommandes (idLigneDeCommande, idCommande, quantite, idProduit, prix) VALUES (NULL, 1,3,1, 11);
 INSERT INTO lignesDeCommandes (idLigneDeCommande, idCommande, quantite, idProduit,idPizza, prix) VALUES (NULL, 1,1, 4, 2, 0.8);
